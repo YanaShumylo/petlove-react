@@ -1,0 +1,34 @@
+.wraperTitle{
+margin-bottom: 10px;
+}
+
+.title{
+font-weight: 700;
+font-size: 28px;
+line-height: 1;
+letter-spacing: -0.04em;
+margin-bottom: 12px;
+}
+
+.subtitle{
+font-weight: 500;
+font-size: 14px;
+line-height: 1.29;
+letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+.wraperTitle{
+margin-bottom: 32px;
+}
+
+.title{
+font-size: 54px;
+margin-bottom: 16px;
+}
+
+.subtitle{
+font-size: 18px;
+line-height: 1.22;
+}
+}

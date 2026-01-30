@@ -1,0 +1,163 @@
+.form {
+display: flex;
+flex-direction: column;
+width: 100%;
+}
+
+.wrapperFormInput{
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-bottom: 24px;
+}
+
+.inputWrapper {
+position: relative;
+}
+
+.input {
+width: 100%;
+height: 42px;
+padding: 12px 40px 12px 12px;
+border-radius: 30px;
+border: 1px solid rgba(38, 38, 38, 0.15);
+font-size: 14px;
+line-height: 1.29;
+letter-spacing: -0.03em;
+transition: border-color 0.2s ease;
+}
+
+.input:focus {
+border-color: #f6b83d;
+outline: none;
+}
+
+
+.inputError {
+border-color: #e03131;
+}
+
+.inputSuccess {
+border-color: #2f9e44;
+}
+
+.iconError {
+position: absolute;
+right: 12px;
+top: 50%;
+transform: translateY(-50%);
+width: 18px;
+height: 18px;
+color: #e03131;
+}
+
+.iconSuccess {
+position: absolute;
+right: 12px;
+top: 50%;
+transform: translateY(-50%);
+width: 18px;
+height: 18px;
+stroke: #2f9e44;
+fill: none;
+}
+
+.eyeIcon {
+position: absolute;
+right: 36px;
+top: 50%;
+transform: translateY(-50%);
+cursor: pointer;
+stroke: #121417;
+fill: none;
+transition: stroke 0.2s ease;
+}
+
+.eyeIcon:hover,
+.eyeIcon:focus {
+stroke: #f6b83d;
+}
+
+.error {
+margin-top: 6px;
+font-size: 12px;
+color: #e03131;
+text-align: center;
+min-height: 18px;
+}
+
+.submitButton {
+height: 42px;
+border-radius: 30px;
+background-color: #f6b83d;
+color: #fff;
+font-weight: 700;
+font-size: 14px;
+line-height: 1.29;
+letter-spacing: -0.03em;
+text-transform: uppercase;
+border: none;
+cursor: pointer;
+transition: all 0.2s ease;
+margin-bottom: 12px;
+}
+
+.submitButton:hover:not(:disabled) {
+background-color: #fff4df;
+color: #f6b83d;
+}
+
+.submitButton:disabled {
+opacity: 0.6;
+cursor: not-allowed;
+}
+
+.text{
+font-weight: 500;
+font-size: 12px;
+line-height: 1.17;
+letter-spacing: -0.03em;
+color: rgba(38, 38, 38, 0.5);
+text-align: center;
+}
+
+.linkPage{
+font-weight: 700;
+text-decoration-skip-ink: none;
+color: #f6b83d; 
+transition: color 0.3s ease;   
+}
+
+.linkPage:hover,
+.linkPage:focus {
+color: #fff;
+}
+
+@media (min-width: 768px) {
+.wrapperFormInput{
+gap: 16px;
+margin-bottom: 32px;
+}
+
+.input {
+width: 100%;
+height: 52px;
+padding: 16px 52px 16px 16px;
+border-radius: 30px;
+border: 1px solid rgba(38, 38, 38, 0.15);
+font-size: 16px;
+line-height: 1.25;
+}
+
+.submitButton {
+height: 52px;
+font-size: 16px;
+line-height: 1.25;
+margin-bottom: 16px;
+}
+
+.text{
+font-size: 14px;
+line-height: 1.43;
+}
+}

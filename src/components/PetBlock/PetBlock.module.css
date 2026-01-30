@@ -1,0 +1,23 @@
+.petImage {
+width: 100%;
+max-width: 335px;             
+height: 280px;             
+border-radius: 30px; 
+object-fit: cover;
+object-position: center;
+}
+
+@media (min-width: 768px) {
+.petImage {
+max-width: 704px;             
+height: 335px;             
+border-radius: 60px; 
+}
+}
+
+@media (min-width: 1280px) {
+.petImage {
+max-width: 592px;             
+height: 654px;             
+}
+}

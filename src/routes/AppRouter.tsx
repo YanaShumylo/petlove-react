@@ -5,7 +5,7 @@ import NewsPage from '../pages/NewsPage/NewsPage';
 import NoticesPage from '../pages/NoticesPage/NoticesPage';
 import FriendsPage from '../pages/FriendsPage/FriendsPage';
 import RegisterPage from '../pages/RegisterPage/RegisterPage';
-import LoginPage from '../pages/LoginPage/LoginPage';
+import LoginPage from '../pages/LoginPage/LoginPage.tsx';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
 import AddPetPage from '../pages/AddPetPage/AddPetPage';
 import PrivateRoute from './PrivateRoute';

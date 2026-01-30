@@ -1,0 +1,61 @@
+.authNav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  width: 178px;
+  border-radius: 30px;
+  background: #fff4df;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  color: #f6b83d;
+  transition: all 0.3s ease;
+}
+
+.link:hover,
+.link:focus {
+  background-color: #f6b83d;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .authNav {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+.link {
+font-size: 16px;
+line-height: 1.25;}
+
+.logoLink{
+  width: 119px;
+}
+.registerLink{
+  width: 149px;
+}
+}
+
+@media (min-width: 1280px) {
+.link {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  background-color: #f6b83d;
+  transition: all 0.3s ease;
+}
+
+.link:hover,
+.link:focus {
+  background-color:  #fff4df;
+  color: #f6b83d;
+}
+}

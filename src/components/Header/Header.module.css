@@ -17,14 +17,22 @@ padding: 16px 16px;
 .logo {
 display: flex;
 align-items: center;
+margin-right: 105px;
 }
 
 .desktopNav {
 display: none;
 }
 
-.tabletAuthNav {
+.desktopAuthNav {
   display: none;
+}
+
+.avatar{
+width: 40px;
+height: 40px;
+border-radius: 100px;
+margin-right: 12px;
 }
 
 .burgerBtn {
@@ -112,12 +120,23 @@ padding: 32px;
 }
 
 .logo {
-margin-right: 173px;
+margin-right: 190px;
 }
-.tabletAuthNav {
+
+.userInfo{
 display: flex;
+flex-direction: row;
 align-items: center;
-margin-right: 16px;
+justify-content: center;
+gap: 8px;
+margin-right: 18px;
+}
+
+.name{
+font-weight: 700;
+font-size: 20px;
+line-height: 1;
+letter-spacing: -0.03em;
 }
 }
 
@@ -135,13 +154,26 @@ justify-content: space-between;
 
 .burgerBtn,
 .burgerMenu,
-.tabletAuthNav{
+.desktopAuthNav{
 display: none;
+}
+
+.logo{
+margin-right: 50px;
 }
 
 .desktopNav {
 display: flex;
 align-items: center;
+justify-content: center;
 gap: 110px;
+}
+
+.desktopHeaderUser{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+gap: 8px;
 }
 }

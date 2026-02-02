@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
 import { AuthContext } from './AuthContext';
 import { useCurrentUser, USER_QUERY_KEY } from '../hooks/useCurrentUser';
-// import type { FullUser } from '../types/user';
+import type { FullUser } from '../types/user';
+import { useState } from 'react';
 import type { AuthResponse } from '../types/auth';
 import { authApi } from '../api/authApi';
 import {useQueryClient } from '@tanstack/react-query';
@@ -14,13 +15,22 @@ interface AuthProviderProps {
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const queryClient = useQueryClient();
+  const [userState, setUserState] = useState<FullUser | null>(null);
 
-  const { data: user } = useCurrentUser();
+  useCurrentUser({
+    onSuccess: (data) => {
+      setUserState(data ?? null);
+    },
+    onError: () => {
+      setUserState(null);
+    },
+  });
 
-  const login = (userData: AuthResponse, token: string) => {
+  function login(userData: AuthResponse, token: string) {
     localStorage.setItem('token', token);
-    queryClient.setQueryData(USER_QUERY_KEY, userData);
-  };
+    queryClient.setQueryData(USER_QUERY_KEY, userData as FullUser);
+    setUserState(userData as FullUser);
+  }
 
   const logout = async () => {
     try {
@@ -32,13 +42,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       );
     } finally {
       localStorage.removeItem('token');
-       queryClient.clear();
+      queryClient.removeQueries({ queryKey: USER_QUERY_KEY });
+      setUserState(null);
     }
   };
 
   return (
     <AuthContext.Provider
-      value={{ user: user || null, isAuthenticated: Boolean(user), login, logout }}
+      value={{ user: userState, isAuthenticated: Boolean(userState), login, logout }}
     >
       {children}
     </AuthContext.Provider>

@@ -3,7 +3,7 @@ import {  Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import Nav from '../Header/Nav/Nav';
 import AuthNav from '../Header/AuthNav/AuthNav';
-import UserNav from '../Header/UserNav/UserNav';
+// import UserNav from '../Header/UserNav/UserNav';
 import css from './Header.module.css';
 import LogOutBtn from './LogOutBtn/LogOutBtn';
 
@@ -31,9 +31,9 @@ export default function Header() {
   }, []);
   
   const isHome = location.pathname === '/';
-  const isAuthPage =
-    location.pathname === '/login' ||
-    location.pathname === '/register';
+  // const isAuthPage =
+  //   location.pathname === '/login' ||
+  //   location.pathname === '/register';
   
   const burgerColorClass = isHome ? css.burgerWhite : css.burgerBlack;
 
@@ -85,7 +85,7 @@ export default function Header() {
         {/* {на  комп'ютері в хедері кнопка Логаут + аватарка + імя} */}
 {!isMobile && !isTablet && (
   <>
-    {!isAuthenticated && isAuthPage && (
+    {!isAuthenticated  && (
       <div className={css.desktopAuthNav}>
         <AuthNav />
       </div>

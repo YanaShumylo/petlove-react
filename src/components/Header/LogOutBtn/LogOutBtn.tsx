@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import ModalApproveAction from '../modals/ModalApproveAction/ModalApproveAction';
+import ModalApproveAction from '../../Modal/ModalApproveAction/ModalApproveAction';
 import css from "./LogOutBtn.module.css";
 
 export default function LogOutBtn() {
@@ -8,7 +8,7 @@ export default function LogOutBtn() {
   return (
     <>
       <button onClick={() => setOpen(true)} className={css.LogOutBtn}>Logout</button>
-      {/* {open && <ModalApproveAction onClose={() => setOpen(false)} />} */}
+      {open && <ModalApproveAction onClose={() => setOpen(false)} />}
     </>
   );
 }

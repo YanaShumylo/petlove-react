@@ -143,18 +143,14 @@ letter-spacing: -0.03em;
 @media (min-width: 1280px) {
 .header {
 max-width: 1216px;
-padding-left: 64px;
 }
 
 .container {
 max-width: 1216px;
-display: flex;
-justify-content: space-between; 
 }  
 
 .burgerBtn,
-.burgerMenu,
-.desktopAuthNav{
+.burgerMenu{
 display: none;
 }
 
@@ -162,11 +158,17 @@ display: none;
 margin-right: 50px;
 }
 
+.desktopAuthNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .desktopNav {
 display: flex;
 align-items: center;
 justify-content: center;
-gap: 110px;
+/* gap: 110px; */
 }
 
 .desktopHeaderUser{

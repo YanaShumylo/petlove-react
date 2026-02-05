@@ -1,0 +1,71 @@
+.formSearch { 
+  width: 100%;
+  max-width: 335px;
+  min-width: 320px;
+  position: relative; 
+  margin: 0 auto; 
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center; 
+  
+}
+
+.input {
+  width: 100%;
+  padding: 12px 50px 12px 16px; 
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: rgba(38, 38, 38, 0.8);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-color: #f6b83d;
+}
+
+.clearButton {
+  position: absolute;
+  right: 40px; 
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchButton {
+  position: absolute;
+  right: 10px; 
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clearButton:hover svg,
+.searchButton:hover svg {
+  fill: #f6b83d;
+}
+
+/* @media (min-width: 778px) {
+.formSearch{
+border: 1px solid rgba(38, 38, 38, 0.15);
+border-radius: 30px;
+padding: 14px 165px 14px 14px;
+width: 230px;
+height: 48px;
+}
+} */

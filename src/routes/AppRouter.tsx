@@ -3,7 +3,7 @@ import MainLayout from '../components/MainLayout/MainLayout';
 import HomePage  from '../pages/HomePage/HomePage';
 import NewsPage from '../pages/NewsPage/NewsPage';
 import NoticesPage from '../pages/NoticesPage/NoticesPage';
-import FriendsPage from '../pages/FriendsPage/FriendsPage';
+import FriendsPage from '../pages/OurFriendsPage/OurFriendsPage.tsx';
 import RegisterPage from '../pages/RegisterPage/RegisterPage';
 import LoginPage from '../pages/LoginPage/LoginPage.tsx';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';

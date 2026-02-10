@@ -41,6 +41,9 @@ gap: 8px;
 }
 
 .link{
+display: flex;               
+align-items: center;        
+justify-content: center;
 border-radius: 30px;
 padding: 12px 24px;
 width: 129px;
@@ -57,4 +60,27 @@ color: #f6b83d;
 .link:focus {
 color: #fff;
 background: #f6b83d;
+}
+
+@media (min-width: 768px) {
+.wrapper{
+max-width: 466px;
+padding: 60px;}
+
+.title{
+font-size: 24px;
+line-height: 1.17;
+}
+
+.text{
+margin-bottom: 28px;
+}
+
+.link{
+padding: 14px 48px;
+width: 140px;
+height: 48px;
+font-size: 16px;
+line-height: 1.25;
+}
 }

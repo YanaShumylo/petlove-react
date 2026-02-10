@@ -2,11 +2,9 @@ import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import type { AxiosError } from 'axios';
-
 import { authApi } from '../../../api/authApi';
 import { useAuth } from '../../../hooks/useAuth';
 import Modal from '../Modal/Modal';
-
 import css from './ModalApproveAction.module.css';
 
 interface Props {

@@ -10,9 +10,9 @@ import ProfilePage from '../pages/ProfilePage/ProfilePage';
 import AddPetPage from '../pages/AddPetPage/AddPetPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-// import ModalApproveAction from '../components/modals/ModalApproveAction/ModalApproveAction';
-// import ModalAttention from '../components/modals/ModalAttention/ModalAttention';
-// import ModalNotice from '../components/modals/ModalNotice/ModalNotice';
+import ModalApproveAction from '../components/Modal/ModalApproveAction/ModalApproveAction.tsx';
+import ModalAttention from '../components/Modal/ModalAttention/ModalAttention';
+import ModalNotice from '../components/Modal/ModalNotice/ModalNotice';
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -55,14 +55,14 @@ const AppRoutes = () => {
         </Route> 
       </Routes>
 
-      {/* Модальні вікна
+      Модальні вікна
       {backgroundLocation && (
       <Routes>
         <Route path="modal-approve" element={<ModalApproveAction />} />
         <Route path="modal-attention" element={<ModalAttention />} />
         <Route path="modal-notice" element={<ModalNotice />} />
         </Routes>
-        )} */}
+        )}
         </>
   )
 };

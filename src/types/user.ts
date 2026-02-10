@@ -1,5 +1,4 @@
-import type { Notice } from "./notice";
-import type { Pet } from "./pet";
+import type { Notice } from "./notices";
 
 export interface User {
   _id: string;

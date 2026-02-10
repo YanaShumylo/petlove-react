@@ -27,7 +27,8 @@ letter-spacing: -0.03em;
 transition: border-color 0.2s ease;
 }
 
-.input:focus {
+.input:hover,
+.icon:focus {
 border-color: #f6b83d;
 outline: none;
 }

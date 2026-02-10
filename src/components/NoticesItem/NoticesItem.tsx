@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import type { NoticeListItem } from "../../types/notices";
-// import ModalNotice from "../ModalNotice/ModalNotice";
+import ModalNotice from "../Modal/ModalNotice/ModalNotice";
 import ModalAttention from "../Modal/ModalAttention/ModalAttention";
 import { addFavorite, removeFavorite } from "../../api/noticesApi";
 import { useAuth } from "../../hooks/useAuth";
+import { useCurrentUser } from "../../hooks/useCurrentUser";
+import type { NoticeDetails } from "../../types/notices";
+import toast from "react-hot-toast";
+import css from "./NoticesItem.module.css";
 
 interface NoticesItemProps {
   item: NoticeListItem;
@@ -13,20 +17,31 @@ interface NoticesItemProps {
 export default function NoticesItem({ item }: NoticesItemProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isAttentionOpen, setIsAttentionOpen] = useState(false);
-
-  const { isAuthenticated, user } = useAuth();
+  
+  const { isAuthenticated } = useAuth();
+  const { data: currentUser } = useCurrentUser();
+ 
   const queryClient = useQueryClient();
 
-  const isFavorite = user?.favorites?.includes(item._id);
+  const isFavoriteInitially =
+    currentUser?.noticesFavorites.some((notice) => notice._id === item._id) ?? false;
 
-  const favoriteMutation = useMutation({
-    mutationFn: () =>
-      isFavorite
-        ? removeFavorite(item._id)
-        : addFavorite(item._id),
-    onSuccess: () => {
+  const [favoriteState, setFavoriteState] = useState(isFavoriteInitially);
+  
+const favoriteMutation = useMutation({
+  mutationFn: (isFavorite: boolean) => isFavorite ? addFavorite(item._id) : removeFavorite(item._id),
+  onError: () => {
+    setFavoriteState((prev) => !prev);
+    toast.error("Failed to update favorite");
+  },
+  onSuccess: (_, isFavorite) => {
       queryClient.invalidateQueries({ queryKey: ["notices"] });
-      queryClient.invalidateQueries({ queryKey: ["user"] });
+    queryClient.invalidateQueries({ queryKey: ["currentUser"] });
+      if (isFavorite) {
+        toast.success("Added to favorites!");
+      } else {
+        toast.success("Removed from favorites");
+      }
     },
   });
 
@@ -43,38 +58,67 @@ export default function NoticesItem({ item }: NoticesItemProps) {
       setIsAttentionOpen(true);
       return;
     }
-    favoriteMutation.mutate();
+    const newFavoriteState = !favoriteState;
+    setFavoriteState(newFavoriteState);
+
+    favoriteMutation.mutate(newFavoriteState);
   };
 
   return (
     <>
-      <li>
-        <img src={item.imgURL} alt={item.title} />
-        <h3>{item.title}</h3>
-        <p>{item.popularity ?? 0}</p>
-        <svg width="24" height="24">
+      <li className={css.itemNotices}>
+        <img className={css.image} src={item.imgURL} alt={item.title} />
+        <div className={css.wrapperTitlePopular}>
+        <h3 className={css.title}>{item.title}</h3>
+        <svg width="16" height="16">
         <use href="/svg-sprite.svg#icon-star"/>
         </svg>
-        <p>Name: {item.name}</p>
-        <p>Birthday: {item.birthday}</p>
-        <p>Sex: {item.sex}</p>
-        <p>Species: {item.species}</p>
-        <p>Category: {item.category}</p>
-        <p>{item.comment}</p>
-        <p>{item.price}</p>
+        <p className={css.popularity}>{item.popularity ?? 0}</p>
+        </div>  
 
-        <button type="button" onClick={handleLearnMoreClick}> Learn more
+        <div className={css.wrapperInfo}>
+
+        <div className={css.wrapperValue}>
+        <span className={css.label}>Name </span>
+        <p className={css.value}>{item.name}</p>
+        </div>
+        <div className={css.wrapperValue}>
+        <span className={css.label}>Birthday</span>
+        <p className={css.value}> {item.birthday}</p>
+        </div>  
+        <div className={css.wrapperValue}>
+        <span className={css.label}>Sex</span>
+        <p className={css.value}> {item.sex}</p>
+        </div>  
+        <div className={css.wrapperValue}>
+        <span className={css.label}>Species</span>
+        <p className={css.value}> {item.species}</p>
+        </div>
+        <div className={css.wrapperValue}>
+        <span className={css.label}>Category</span>
+        <p className={css.value}>{item.category}</p>
+        </div>
+        </div>
+
+        <p className={css.comment}>{item.comment}</p>
+        <p className={css.price}>${item.price}</p>
+
+        <div className={css.buttons}>
+        <button className={ css.buttonLearnMore} type="button" onClick={handleLearnMoreClick}> Learn more
         </button>
 
-        <button type="button" onClick={handleFavoriteClick}>
-          <svg width="24" height="24" >
-            <use href="/svg-sprite.svg#icon-heart" />
-          </svg>
+        <button   type="button" className={css.buttonHeart} onClick={handleFavoriteClick}>
+        <svg width="46" height="46">
+        <use href={
+        favoriteState
+          ? "/svg-sprite.svg#icon-heart-hover" : "/svg-sprite.svg#icon-heart-normal" } />
+        </svg>
         </button>
-      </li>
+        </div>
+      </li>    
 
       {isOpen && (
-        <ModalNotice noticeId={item._id} onClose={() => setIsOpen(false)}/>
+        <ModalNotice item={item as NoticeDetails}onClose={() => setIsOpen(false)}/>
       )}
 
       {isAttentionOpen && (<ModalAttention onClose={() => setIsAttentionOpen(false)}/>

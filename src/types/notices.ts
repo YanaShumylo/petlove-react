@@ -58,11 +58,5 @@ export type Species =
 
 export type Sex = "unknown" | "female" | "male" | "multiple";
 
-export interface City {
-  _id: string;
-  useCounty: string;
-  stateEn: string;
-  cityEn: string;
-  countyEn?: string;
-}
+
 

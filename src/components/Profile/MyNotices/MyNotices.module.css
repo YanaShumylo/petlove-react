@@ -1,0 +1,30 @@
+.tabs {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; 
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  border-radius: 30px;
+  width: 123px;
+  height: 42px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 129%;
+  letter-spacing: -0.03em;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.tabs button:hover,
+.tabs button:focus {
+  outline: none;
+}
+
+.tabs button.active {
+  background: #f6b83d;
+  color: #fff;
+}

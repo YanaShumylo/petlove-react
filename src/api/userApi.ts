@@ -1,5 +1,5 @@
 import api from './api';
-import type { FullUser, User} from '../types/user';
+import type { FullUser, User, UpdateUserData} from '../types/user';
     
 export const userApi = {
   getCurrentUser: async () => {
@@ -12,6 +12,10 @@ export const userApi = {
       '/users/current/full'
     );
     return response.data;
-},
-
+  },
+  
+    updateCurrent: async(data:UpdateUserData) => {
+    const response = await api.patch<FullUser>('/users/current/edit', data);
+    return response.data;
+  },
 };

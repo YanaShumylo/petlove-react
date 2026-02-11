@@ -12,6 +12,7 @@ import css from "./NoticesItem.module.css";
 
 interface NoticesItemProps {
   item: NoticeListItem;
+  canDelete?: boolean;
 }
 
 export default function NoticesItem({ item }: NoticesItemProps) {

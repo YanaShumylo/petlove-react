@@ -1,0 +1,42 @@
+.EditUserBtn{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+}
+
+.editBtn{
+display: flex;
+align-items: center;
+gap: 4px;
+border-radius: 30px;
+padding: 10px 14px;
+min-width: 80px;
+background: #f6b83d;
+font-weight: 500;
+font-size: 14px;
+line-height: 1.29;
+letter-spacing: -0.02em;
+color: #fff;
+transition: all 0.3s ease; 
+}
+
+.editBtn:hover,
+.editBtn:focus {
+  background-color: #f7ca5d;}
+
+
+.iconPen{
+border-radius: 30px;
+padding: 10px;
+width: 48px;
+height: 48px;
+transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.iconPen:hover,
+.iconPen:focus {
+transform: scale(1.2); 
+background-color: #fff4df; 
+outline: none;
+}

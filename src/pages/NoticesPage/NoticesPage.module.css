@@ -10,16 +10,30 @@
   padding: 60px 20px 10px;
 }
 
+.titleNoticesPage{
+align-self: flex-start;
+text-align: left;
+margin-bottom: 40px;
+}
+
 @media (min-width: 768px) {
 .NoticesPage {
 max-width: 768px;  
 padding: 167px 32px 10px;
   }
+
+.titleNoticesPage{
+margin-bottom: 44px;
+}
 }
 
 @media (min-width: 1280px) {
 .NoticesPage {
 max-width: 1208px;  
 padding: 178px 64px 10px;
-  }
+}
+
+.titleNoticesPage{
+margin-bottom: 40px;
+}
 }

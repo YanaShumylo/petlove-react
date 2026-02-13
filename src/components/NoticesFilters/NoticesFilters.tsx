@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AsyncSelect from "react-select/async";
 import { components } from "react-select";
+import Select from "react-select";
 import { searchCities } from "../../api/citiesApi";
 import SearchField from "../SearchField/SearchField";
 import type { Category, Species, Sex } from "../../types/notices";
@@ -51,62 +52,57 @@ export default function NoticesFilters({
               
         <div className={css.wrapperCategoriaBygender} >
           <div className={css.selectwrapper}>
-      <select className={css.select}
-        value={params.category ?? ""}
-        onChange={(e) =>
-          onChange({
-            ...params,
-            category: (e.target.value as Category) || undefined,
-          })
-        }
-      >
-        <option value="">Category</option>
-        {categories.map((c) => (
-          <option key={c} value={c}>
-            {c}
-          </option>
-        ))}              
-            </select>
-            </div>
+    <Select
+      className={css.customSelect}
+      classNamePrefix="react-select"
+      options={categories.map((c) => ({ value: c, label: c }))}
+      value={params.category ? { value: params.category, label: params.category } : null}
+      onChange={(option) =>
+        onChange({
+          ...params,
+          category: option?.value,
+        })
+      }
+      placeholder="Category"
+      isClearable
+    />
+  </div>
 
-        <div className={css.selectwrapper}>
-      <select className={css.select}
-        value={params.sex ?? ""}
-        onChange={(e) =>
-          onChange({
-            ...params,
-            sex: (e.target.value as Sex) || undefined,
-          })
-        }
-      >
-        <option value="">By gender</option>
-        {sexes.map((s) => (
-          <option key={s} value={s}>
-            {s}
-          </option>
-        ))}
-        </select>
-        </div>
-        </div>
 
-        <div className={css.selectwrapper}>
-      <select className={`${css.selectSpecies} ${css.selectType}`}
-        value={params.species ?? ""}
-        onChange={(e) =>
-          onChange({
-            ...params,
-            species: (e.target.value as Species) || undefined,
-          })
-        }
-      >
-        <option value="">By type</option>
-        {species.map((s) => (
-          <option key={s} value={s}>
-            {s}
-          </option>
-        ))}
-          </select>
-        </div>
+  <div className={css.selectwrapper}>
+    <Select
+      className={css.customSelect}
+      classNamePrefix="react-select"
+      options={sexes.map((s) => ({ value: s, label: s }))}
+      value={params.sex ? { value: params.sex, label: params.sex } : null}
+      onChange={(option) =>
+        onChange({
+          ...params,
+          sex: option?.value,
+        })
+      }
+      placeholder="By gender"
+      isClearable
+    />
+  </div>
+
+  <div className={css.selectwrapper}>
+    <Select
+      className={css.customSelect}
+      classNamePrefix="react-select"
+      options={species.map((s) => ({ value: s, label: s }))}
+      value={params.species ? { value: params.species, label: params.species } : null}
+      onChange={(option) =>
+        onChange({
+          ...params,
+          species: option?.value,
+        })
+      }
+      placeholder="By type"
+      isClearable
+    />
+    </div>
+          </div>
       
         <AsyncSelect<City, false>
   className={css.asyncSelectContainer}
@@ -149,29 +145,47 @@ export default function NoticesFilters({
     ),
   }}
 />
-        </div>
+      </div>
+      
+      <div className={css.divider}></div>
 
       {/* сортування за популярністю та ціною */}
 <div className={css.sort}>
 
-  <label>
+  <label className={css.sortLabel}>
     <input
       type="radio"
       name="sort"
-      checked={params.byPopularity === false} 
+      checked={params.byPopularity === false}
       onChange={() =>
         onChange({
           ...params,
-          byPopularity: false, 
+          byPopularity: false,
           byPrice: undefined,
         })
       }
     />
-    Popular
+    <span>Popular</span>
+
+    {params.byPopularity === false && (
+      <svg
+        className={css.closeIcon}
+        width={14}
+        height={14}
+        onClick={(e) => {
+          e.stopPropagation();
+          onChange({
+            ...params,
+            byPopularity: undefined,
+          });
+        }}
+      >
+        <use href="/svg-sprite.svg#icon-cross-small" />
+      </svg>
+    )}
   </label>
 
-
-  <label>
+  <label className={css.sortLabel}>
     <input
       type="radio"
       name="sort"
@@ -179,15 +193,32 @@ export default function NoticesFilters({
       onChange={() =>
         onChange({
           ...params,
-          byPopularity: true, 
+          byPopularity: true,
           byPrice: undefined,
         })
       }
     />
-    Unpopular
+    <span>Unpopular</span>
+
+    {params.byPopularity === true && (
+      <svg
+        className={css.closeIcon}
+        width={14}
+        height={14}
+        onClick={(e) => {
+          e.stopPropagation();
+          onChange({
+            ...params,
+            byPopularity: undefined,
+          });
+        }}
+      >
+        <use href="/svg-sprite.svg#icon-cross-small" />
+      </svg>
+    )}
   </label>
 
-  <label>
+  <label className={css.sortLabel}>
     <input
       type="radio"
       name="sort"
@@ -195,15 +226,32 @@ export default function NoticesFilters({
       onChange={() =>
         onChange({
           ...params,
-          byPrice: true, 
+          byPrice: true,
           byPopularity: undefined,
         })
       }
     />
-    Cheap
+    <span>Cheap</span>
+
+    {params.byPrice === true && (
+      <svg
+        className={css.closeIcon}
+        width={14}
+        height={14}
+        onClick={(e) => {
+          e.stopPropagation();
+          onChange({
+            ...params,
+            byPrice: undefined,
+          });
+        }}
+      >
+        <use href="/svg-sprite.svg#icon-cross-small" />
+      </svg>
+    )}
   </label>
 
-  <label>
+  <label className={css.sortLabel}>
     <input
       type="radio"
       name="sort"
@@ -211,16 +259,33 @@ export default function NoticesFilters({
       onChange={() =>
         onChange({
           ...params,
-          byPrice: false, 
+          byPrice: false,
           byPopularity: undefined,
         })
       }
     />
-    Expensive
+    <span>Expensive</span>
+
+    {params.byPrice === false && (
+      <svg
+        className={css.closeIcon}
+        width={14}
+        height={14}
+        onClick={(e) => {
+          e.stopPropagation();
+          onChange({
+            ...params,
+            byPrice: undefined,
+          });
+        }}
+      >
+        <use href="/svg-sprite.svg#icon-cross-small" />
+      </svg>
+    )}
   </label>
 </div>
 
-      <button type="button" onClick={handleReset} className={css.reset}>
+      <button className={css.btnReset} type="button" onClick={handleReset}>
         Reset
       </button>
     </section>

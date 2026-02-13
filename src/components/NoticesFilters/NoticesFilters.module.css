@@ -1,0 +1,244 @@
+.filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 335px;
+  min-width: 320px;
+  background: #fff4df;
+  padding: 30px;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+.wrapperFilters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.wrapperCategoriaBygender {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+}
+
+/* основне поле вводу  */
+.customSelect :global(.react-select__control) {
+  border-radius: 30px;
+  min-height: 42px;
+  border: 1px solid transparent;
+  padding-left: 16px;
+  background: #fff;
+  transition: border-color 0.3s ease;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  color: #262626;
+}
+
+/* при ховері та фокусі стилі*/
+.customSelect :global(.react-select__control--is-focused),
+.customSelect :global(.react-select__control:hover) {
+  border-color: #f6b83d;
+  box-shadow: none;
+}
+
+/* випадаюче меню */
+.customSelect :global(.react-select__menu) {
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-top: 6px;
+}
+
+/* окремий пункт списку */
+.customSelect :global(.react-select__option) {
+  padding: 10px 16px;
+  color: rgba(38,38,38,0.6);
+  cursor: pointer;
+}
+
+/* активний пункт */
+.customSelect :global(.react-select__option--is-selected) {
+  background-color: #f6b83d;
+  color: #fff;
+}
+
+/* стилізуємо бібліотеку AsyncSelect */
+.asyncSelectContainer {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* основне поле вводу */
+.asyncSelectContainer :global(.react-select__control) {
+  border: 1px solid transparent;
+  border-radius: 30px;
+  min-height: 42px;
+  background: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: #262626;
+  transition: border-color 0.3s ease;
+  padding-left: 16px;
+}
+
+/* при фокусі прибираємо тінь та додаємо помаранчову рамку */
+.asyncSelectContainer :global(.react-select__control--is-focused),
+.asyncSelectContainer :global(.react-select__control:hover)  {
+  border-color: #f6b83d;
+  box-shadow: none;
+}
+
+/* Dropdown меню */
+.asyncSelectContainer :global(.react-select__menu) {
+  border-radius: 20px;
+  margin-top: 6px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 146px;
+  overflow-y: auto;
+}
+
+/* окремий пункт списку */
+.asyncSelectContainer :global(.react-select__option) {
+  padding: 10px 16px;
+  cursor: pointer;
+  color: rgba(38, 38, 38, 0.6);
+}
+
+/* активний пункт списку */
+.asyncSelectContainer :global(.react-select__option--is-selected) {
+  background-color: #f6b83d;
+  color: #fff;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(38, 38, 38, 0.1);
+}
+
+.sort {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+/* прибираю радіокнопку */
+.sort input[type="radio"] {
+  display: none;
+}
+
+.sortLabel{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  border-radius: 30px;
+  padding: 12px;
+  background: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: rgba(38, 38, 38, 0.6);
+  transition: all 0.3s ease;
+}
+
+.btnReset{
+border-radius: 30px;
+padding: 12px;
+background: #fff;
+border: 1px solid #f6b83d;
+font-weight: 500;
+font-size: 14px;
+line-height: 1.29;
+letter-spacing: -0.03em;
+color: #262626;
+transition: all 0.3s ease;
+}
+
+.sortLabel:hover,
+.sortLabel:focus,
+.btnReset:hover,
+.btnReset:focus {
+  background: #f6b83d;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .filters {
+    max-width: 704px;
+    padding: 40px 32px;
+    margin-bottom: 32px;
+  }
+
+  .wrapperFilters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: center;
+  }
+
+  .wrapperCategoriaBygender {
+    display: contents;
+  }
+
+  .wrapperFilters > :nth-child(3) {
+    grid-column: span 1;
+  }
+
+  .asyncSelectContainer {
+    grid-column: span 2;
+  }
+
+  .customSelect :global(.react-select__control) {
+  font-size: 16px;
+  line-height: 1.25;}
+
+  .asyncSelectContainer :global(.react-select__control) {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+  .sort {
+justify-content: flex-start;
+gap: 8px;
+width: 100%;}
+
+.sortLabel{
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.btnReset{
+  width: 90px;
+padding: 12px;
+font-size: 16px;
+line-height: 1.25;
+}
+}
+
+@media (min-width: 1280px) {
+  .filters {
+    max-width: 1216px;
+    padding: 40px;
+  }
+
+  .wrapperFilters {
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+  }
+
+  .asyncSelectContainer {
+    grid-column: auto;
+  }
+}
+

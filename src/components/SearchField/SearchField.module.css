@@ -3,25 +3,26 @@
   max-width: 335px;
   min-width: 320px;
   position: relative; 
+  /* padding: 20px; */
 }
 
 .inputWrapper {
   position: relative;
   display: flex;
   align-items: center; 
-  
+  width: 100%;
 }
 
 .input {
   width: 100%;
   padding: 12px 50px 12px 16px; 
-  border: 1px solid rgba(38, 38, 38, 0.15);
+  border: 1px solid transparent;;
   border-radius: 30px;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.03em;
-  color: rgba(38, 38, 38, 0.8);
+  color: #262626;
   outline: none;
   transition: border-color 0.3s ease;
 }

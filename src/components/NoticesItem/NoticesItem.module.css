@@ -122,6 +122,12 @@ align-items: center;
 justify-content: center;
 }
 
+.buttonDelete {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
 @media (min-width: 768px) {
 .itemNotices {
 width: calc(50% - 20px);

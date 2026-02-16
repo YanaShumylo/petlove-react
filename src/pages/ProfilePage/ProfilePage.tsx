@@ -4,10 +4,8 @@ import css from './ProfilePage.module.css';
 
 export default function ProfilePage() {
         return (
-            <section className={css.profilePage}>
-                <div className={css.container}>
+        <section className={css.profilePage}>
             <UserCard/>
             <MyNotices />
-                </div>
         </section>);
 }

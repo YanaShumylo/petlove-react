@@ -5,19 +5,21 @@ import type { NoticeListItem } from "../../../types/notices";
 import css from "./MyNotices.module.css";
 
 export default function MyNotices() {
-  const { data: currentUser, isLoading, isError } = useCurrentUser();
+    const { data: currentUser } = useCurrentUser();
 
-  const [tab, setTab] = useState<"favorites" | "viewed">("favorites");
+    const [tab, setTab] = useState<"favorites" | "viewed">("favorites");
+    const uniqueData = useMemo(() => {
+    const favorites = currentUser?.noticesFavorites ?? [];
+    const viewed = currentUser?.noticesViewed ?? [];
+    const selected = tab === "favorites" ? favorites : viewed;
 
- const data = useMemo(() => {
-  const favorites = currentUser?.noticesFavorites ?? [];
-  const viewed = currentUser?.noticesViewed ?? [];
-  return tab === "favorites" ? favorites : viewed;
-}, [tab, currentUser]);
+    // видалення дубліката  по _id
+    const unique = Array.from(
+      new Map(selected.map((n) => [n._id, n])).values()
+    );
 
-  if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Something went wrong</p>;
-
+    return unique;}, [tab, currentUser]);
+  
   return (
     <section className={css.myNotices}>
       <div className={css.tabs}>
@@ -36,7 +38,7 @@ export default function MyNotices() {
         </button>
       </div>
 
-      {!data.length && (
+      {!uniqueData.length && (
         <p>
           {tab === "favorites"
             ? "No favorite notices yet"
@@ -44,12 +46,12 @@ export default function MyNotices() {
         </p>
       )}
 
-      <ul>
-        {data.map((notice) => (
+      <ul className={css.notiecList}>
+        {uniqueData.map((notice) => (
           <NoticesItem
             key={notice._id}
             item={notice as NoticeListItem}
-            canDelete={tab === "favorites"}
+            mode={tab === "favorites" ? "favorites" : "viewed" }
           />
         ))}
       </ul>

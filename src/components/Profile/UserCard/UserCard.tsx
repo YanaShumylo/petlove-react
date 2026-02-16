@@ -5,7 +5,7 @@ import UserBlock from '../UserBlock/UserBlock';
 import PetsBlock from '../PetsBlock/PetsBlock';
 import EditUserBtn from '../EditUserBtn/EditUserBtn';
 import LogOutBtn from '../../Header/LogOutBtn/LogOutBtn';
-// import css from './UserCard.module.css';
+import css from './UserCard.module.css';
 
 export default function UserCard() {
   const { data: user } = useQuery<FullUser>({
@@ -16,7 +16,7 @@ export default function UserCard() {
   if (!user) return null;
 
   return (
-    <section >
+    <section className={css.userCard} >
       <EditUserBtn />
       <UserBlock user={user} />
       <PetsBlock pets={user.pets} />

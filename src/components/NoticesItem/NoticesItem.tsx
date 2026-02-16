@@ -12,10 +12,10 @@ import css from "./NoticesItem.module.css";
 
 interface NoticesItemProps {
   item: NoticeListItem;
-  canDelete?: boolean;
+  mode?: "default" | "favorites" | "viewed";
 }
 
-export default function NoticesItem({ item }: NoticesItemProps) {
+export default function NoticesItem({ item, mode = "default", }: NoticesItemProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isAttentionOpen, setIsAttentionOpen] = useState(false);
   
@@ -36,7 +36,7 @@ const favoriteMutation = useMutation({
     toast.error("Failed to update favorite");
   },
   onSuccess: (_, isFavorite) => {
-      queryClient.invalidateQueries({ queryKey: ["notices"] });
+    queryClient.invalidateQueries({ queryKey: ["notices"] });
     queryClient.invalidateQueries({ queryKey: ["currentUser"] });
       if (isFavorite) {
         toast.success("Added to favorites!");
@@ -108,13 +108,20 @@ const favoriteMutation = useMutation({
         <button className={ css.buttonLearnMore} type="button" onClick={handleLearnMoreClick}> Learn more
         </button>
 
-        <button   type="button" className={css.buttonHeart} onClick={handleFavoriteClick}>
+        {mode === "default" && (
+          <button type="button" className={css.buttonHeart} onClick={handleFavoriteClick}>
         <svg width="46" height="46">
         <use href={
         favoriteState
           ? "/svg-sprite.svg#icon-heart-hover" : "/svg-sprite.svg#icon-heart-normal" } />
         </svg>
-        </button>
+            </button>)}
+          {mode === "favorites" && (
+        <button className={css.buttonDelete} onClick={() => favoriteMutation.mutate(false)}>
+        <svg width="46" height="46">
+        <use href= "/svg-sprite.svg#icon-delete"/>
+        </svg>
+        </button>  )}
         </div>
       </li>    
 

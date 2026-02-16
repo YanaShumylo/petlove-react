@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { petsApi } from '../../../api/petsApi';
+import { removePet  } from '../../../api/petsApi';
 import type { Pet } from '../../../types/pet';
 import toast from 'react-hot-toast';
 import css from './PetsItem.module.css';
@@ -12,7 +12,7 @@ export default function PetsItem({ pet }: PetsItemProps) {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: () => petsApi(pet._id),
+    mutationFn: () => removePet (pet._id),
     onSuccess: (updatedUser) => {
       queryClient.setQueryData(['currentUser'], updatedUser);
       toast.success('Pet deleted successfully!');
@@ -32,16 +32,32 @@ export default function PetsItem({ pet }: PetsItemProps) {
 
   return (
     <div className={css.petItem}>
-      <img src={pet.imgURL} alt={pet.name} />
-      <div>
-        <p className={css.title}>{pet.title}</p>
-        <p className={css.text}>Name: {pet.name}</p>
-        <p className={css.text}>Birthday: {pet.birthday}</p>
-        <p className={css.text}>Sex: {pet.sex}</p>
-        <p className={css.text}>Species: {pet.species}</p>
-      </div>
+      <img className={css.image} src={pet.imgURL} alt={pet.name} />
+      <div className={css.wrapperInfo}>
 
-      <button onClick={handleDelete} disabled={isPending}
+        <h3 className={css.title}>{pet.title}</h3>
+        
+        <div className={css.wrapperValueLabel}>
+        <div className={css.wrapperValue}>
+          <span className={css.label}>Name </span>
+          <p className={css.value}>{pet.name}</p>
+        </div>
+        <div className={css.wrapperValue}>
+          <span className={css.label}>Birthday</span>
+          <p className={css.value}> {pet.birthday}</p>
+        </div>
+        <div className={css.wrapperValue}>
+          <span className={css.label}>Sex</span>
+          <p className={css.value}> {pet.sex}</p>
+        </div>
+        <div className={css.wrapperValue}>
+          <span className={css.label}>Species</span>
+          <p className={css.value}> {pet.species}</p>
+          </div>
+          </div>
+      </div>
+ 
+      <button className={css.deleteBtn} onClick={handleDelete} disabled={isPending}
         >
           <svg width="30" height="30">
         <use href="/svg-sprite.svg#icon-delete" />

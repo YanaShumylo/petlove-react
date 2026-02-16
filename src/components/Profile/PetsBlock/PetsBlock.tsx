@@ -10,8 +10,12 @@ interface PetsBlockProps {
 export default function PetsBlock({ pets = [] }: PetsBlockProps) {
   return (
     <section className={css.petsBlock}>
-      <PetsList pets={pets}  />
-      <AddPet />      
+      <div className={css.leftBlock}>
+      <PetsList pets={pets} />
+      </div>
+      <div className={css.rightBlock}>
+      <AddPet />  
+      </div>
     </section>
   );
 }

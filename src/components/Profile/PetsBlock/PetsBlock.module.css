@@ -1,7 +1,19 @@
 .petsBlock{
 display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 40px;
+align-items: flex-start;
+justify-content: flex-start; 
+gap: 20px;
+}
+
+.leftBlock {
+  flex: 1;
+}
+
+.rightBlock {
+  width: 103px; 
+  flex-shrink: 0; 
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-left: -130px; 
 }

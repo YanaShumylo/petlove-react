@@ -14,7 +14,7 @@ export default function EditUserBtn() {
       </button>
 
 
-        <svg className={css.iconPen} onClick={() => setIsOpen(true)} width="18" height="18">
+        <svg className={css.iconPen} onClick={() => setIsOpen(true)} width="38" height="38">
           <use href="/svg-sprite.svg#icon-pen" />
         </svg>
       {isOpen && <ModalEditUser onClose={() => setIsOpen(false)} />}

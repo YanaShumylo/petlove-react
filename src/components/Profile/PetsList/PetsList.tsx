@@ -7,18 +7,21 @@ interface PetsListProps {
 }
 
 export default function PetsList({ pets= [] }: PetsListProps) {
-  if (!pets.length) {
-    return <p className={css.text}>No pets yet</p>;
-  }
-
   return (
-    <>
-    <p className={css.text}> My pets</p>
+  <div className={css.wrapper}>
+      {pets.length === 0 ? (
+   <p className={css.text}>No pets yet</p>
+  ) : (
+        <>
+          <p className={css.text}>My pets</p>
+  
     <ul className={css.petsList}>
       {pets.map(pet => (
-        <PetsItem key={pet._id} pet={pet} />
+        <PetsItem pet={pet} />
       ))}
     </ul>
-    </>
+  </>
+      )}
+    </div>
   );
 }

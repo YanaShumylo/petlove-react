@@ -1,0 +1,246 @@
+.wrapperAddPetForm {
+  width: 100%;
+  max-width: 335px;
+  min-width: 320px;
+  background: #fff;
+  border-radius: 30px;
+  padding: 28px 20px;
+}
+
+.wrapperTitleText {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1;
+letter-spacing: -0.03em;
+}
+
+.text {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  color: rgba(43, 43, 42, 0.4);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sex {
+  display: flex;
+  gap: 12px;
+}
+
+.sexItem input {
+  display: none;
+}
+
+.iconFemale,
+.iconMale,
+.iconUnknown {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.iconFemale {
+  background: #fde2e4;
+  color: #e03131;
+}
+
+.iconMale {
+  background: #d0ebff;
+  color: #1971c2;
+}
+
+.iconUnknown {
+  background: #fff4df;
+  color: #f6b83d;
+}
+
+.sexItem input:checked + span {
+  box-shadow: 0 0 0 1px #f6b83d;
+}
+
+.avatarWrapper {
+  display: flex;
+   flex-direction: column; 
+  gap: 20px;
+  align-items: center;
+}
+
+.avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatarPlaceholder {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #fff4df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapperInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.inputWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  border-radius: 30px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-color: #f6b83d;
+}
+
+.error {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #e03131;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.btnBack,
+.btnSubmit {
+  border-radius: 30px;
+  padding: 12px 24px;
+  height: 42px;
+  font-weight: 700;
+  font-size: 14px;
+line-height: 1.29;
+letter-spacing: -0.03em;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border: none;
+}
+
+.btnBack {
+  background: rgba(38, 38, 38, 0.05);
+  color: #262626;
+}
+
+.btnSubmit {
+  background: #f6b83d;
+  color: #fff;
+}
+
+.btnBack:hover,
+.btnSubmit:hover {
+  background: #fff4df;
+  color: #f6b83d;
+}
+
+@media (min-width: 768px) {
+.wrapperAddPetForm {
+  max-width: 704px;
+  border-radius: 60px;
+  padding: 40px 136px;
+}
+
+.wrapperTitleText {
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.text {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.sex {
+  gap: 8px;
+}
+
+.avatarWrapper {
+  display: flex;
+   flex-direction: column; 
+  gap: 20px;
+  align-items: center;
+}
+
+.avatar {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+}
+
+.avatarPlaceholder {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: #fff4df;
+}
+
+.wrapperInfo {
+  gap: 18px;
+}
+
+.input {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.btnBack,
+.btnSubmit {
+  border-radius: 30px;
+  padding: 14px 67px;
+  height: 48px;
+  font-size: 16px;
+line-height: 1.25;
+}
+}
+
+@media (min-width: 1280px) {
+.wrapperAddPetForm {
+  max-width: 592px;
+  border-radius: 60px;
+  padding: 60px 80px;
+}
+}

@@ -27,16 +27,20 @@ transition: all 0.3s ease;
 
 
 .iconPen{
-border-radius: 30px;
-padding: 10px;
-width: 48px;
-height: 48px;
-transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+transition: transform 0.3s ease;
 }
 
 .iconPen:hover,
 .iconPen:focus {
-transform: scale(1.2); 
-background-color: #fff4df; 
-outline: none;
+transform: scale(1.4); 
+}
+
+@media (min-width: 768px) {
+.editBtn{
+padding: 10px 20px;
+min-width: 118px;
+font-size: 16px;
+line-height: 1.25;
+}
 }

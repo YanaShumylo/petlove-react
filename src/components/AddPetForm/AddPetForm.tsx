@@ -9,6 +9,10 @@ import type { Pet } from "../../types/pet";
 import type { FullUser } from "../../types/user";
 import { USER_QUERY_KEY } from "../../hooks/useCurrentUser";
 import css from "./AddPetForm.module.css";
+import Select from "react-select";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { Controller } from "react-hook-form";
 
 export interface AddPetFormValues {
   name: string;
@@ -51,6 +55,8 @@ export default function AddPetForm() {
   const {
     register,
     handleSubmit,
+    setValue,
+    control,
     watch,
     formState: { errors },
   } = useForm<AddPetFormValues>({
@@ -163,24 +169,36 @@ export default function AddPetForm() {
 
             <div className={css.row}>
               <div className={css.inputWrapper}>
-                <input
-                  type="date"
-                  className={css.input}
-                  {...register("birthday")}
-                />
-                {errors.birthday && (
-                  <p className={css.error}>{errors.birthday.message}</p>
-                )}
+               <Controller
+                control={control} name="birthday" render={({ field }) => (
+              <DatePicker selected={field.value ? new Date(field.value) : null}
+              onChange={(date: Date | null) => {field.onChange(date ? date.toISOString().split("T")[0] : "");
+              }}
+              dateFormat="yyyy-MM-dd"
+              placeholderText="00.00.0000"
+              className={css.input}
+              popperClassName={css.datePickerPopper}
+              calendarClassName={css.datePickerCalendar}
+              />
+              )}
+              />
+              {errors.birthday && (
+                <p className={css.error}>{errors.birthday.message}</p>
+              )}
               </div>
 
               <div className={css.inputWrapper}>
-                <select className={css.input} {...register("species")}>
-                  <option value="">Type of pet</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="fish">Fish</option>
-                  <option value="bird">Bird</option>
-                </select>
+                <Select className={css.customSelect} classNamePrefix="react-select"
+                options={[
+                { value: "dog", label: "Dog" },
+                { value: "cat", label: "Cat" },
+                { value: "fish", label: "Fish" },
+                { value: "bird", label: "Bird" },
+                ]}
+                placeholder="Type of pet" 
+                onChange={(option) => {setValue("species", option?.value || "");
+                }}
+                />
                 {errors.species && (
                   <p className={css.error}>{errors.species.message}</p>
                 )}

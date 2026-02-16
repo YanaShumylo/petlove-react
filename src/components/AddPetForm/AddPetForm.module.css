@@ -131,6 +131,77 @@ letter-spacing: -0.03em;
   border-color: #f6b83d;
 }
 
+/* Стилізація календаря */
+.datePickerCalendar {
+  border-radius: 20px !important;
+  background: #fff !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+  border: none !important;
+  margin-top: 6px;
+  padding: 12px;
+}
+
+.datePickerPopper {
+  z-index: 10;
+}
+
+.datePickerCalendar :global(.react-datepicker__header) {
+  background: transparent;
+  border-bottom: none;
+}
+
+.datePickerCalendar :global(.react-datepicker__day--selected) {
+  background-color: #f6b83d;
+  border-radius: 50%;
+}
+
+.datePickerCalendar :global(.react-datepicker__day:hover) {
+  background-color: #fff4df;
+  border-radius: 50%;
+}
+
+/* стилізація Type of pet  основне поле вводу  */
+.customSelect :global(.react-select__control) {
+  border-radius: 30px;
+  min-height: 42px;
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  padding-left: 16px;
+  background: #fff;
+  transition: border-color 0.3s ease;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  color: #262626;
+}
+
+/* при ховері та фокусі стилі*/
+.customSelect :global(.react-select__control--is-focused),
+.customSelect :global(.react-select__control:hover) {
+  border-color: #f6b83d;
+  box-shadow: none;
+}
+
+/* випадаюче меню */
+.customSelect :global(.react-select__menu) {
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-top: 6px;
+}
+
+/* окремий пункт списку */
+.customSelect :global(.react-select__option) {
+  padding: 10px 16px;
+  color: rgba(38,38,38,0.6);
+  cursor: pointer;
+}
+
+/* активний пункт */
+.customSelect :global(.react-select__option--is-selected) {
+  background-color: #f6b83d;
+  color: #fff;
+}
+
 .error {
   margin-top: 6px;
   font-size: 12px;
@@ -223,6 +294,11 @@ letter-spacing: -0.03em;
 }
 
 .input {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+  .customSelect :global(.react-select__control) {
   font-size: 16px;
   line-height: 1.25;
 }

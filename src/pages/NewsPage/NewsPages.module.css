@@ -26,6 +26,13 @@
   margin-bottom: 0; 
 }
 
+.textNoFound{
+font-weight: 500;
+font-size: 14px;
+line-height: 1.29;
+letter-spacing: -0.03em;
+}
+
 @media (min-width: 768px) {
   .newsPage {
     max-width: 768px;  
@@ -46,6 +53,12 @@
     width: 230px;
     margin-bottom: 0; 
   }
+
+.textNoFound{
+font-weight: 600;
+font-size: 16px;
+line-height: 1.25;
+}
 }
 
 @media (min-width: 1280px) {

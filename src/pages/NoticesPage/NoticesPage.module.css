@@ -16,6 +16,13 @@ text-align: left;
 margin-bottom: 40px;
 }
 
+.textNoFound{
+font-weight: 500;
+font-size: 14px;
+line-height: 1.29;
+letter-spacing: -0.03em;
+}
+
 @media (min-width: 768px) {
 .NoticesPage {
 max-width: 768px;  
@@ -24,6 +31,12 @@ padding: 167px 32px 10px;
 
 .titleNoticesPage{
 margin-bottom: 44px;
+}
+
+.textNoFound{
+font-weight: 600;
+font-size: 16px;
+line-height: 1.25;
 }
 }
 

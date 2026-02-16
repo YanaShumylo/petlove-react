@@ -39,11 +39,16 @@ export default function MyNotices() {
       </div>
 
       {!uniqueData.length && (
-        <p>
-          {tab === "favorites"
-            ? "No favorite notices yet"
-            : "No viewed notices yet"}
-        </p>
+        <p className={css.text}>
+      {tab === "favorites" ? (
+      <>
+      Oops, <span className={css.textSpan}> looks like there aren't any furries</span> on our adorable page yet. Do not worry! View your pets on the
+      "find your favorite pet" page and add them to your favorites.
+      </>
+      ) : (
+      "No viewed notices yet"
+      )}
+     </p>
       )}
 
       <ul className={css.notiecList}>

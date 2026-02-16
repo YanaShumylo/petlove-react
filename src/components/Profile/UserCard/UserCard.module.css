@@ -1,0 +1,27 @@
+.userCard{
+display: flex;
+flex-direction: column;
+max-width: 335px;
+min-width: 320px; 
+border-radius: 30px;
+padding: 18px 20px;
+background: #fff;
+margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+.userCard{
+max-width: 704px;
+border-radius: 60px;
+padding: 40px;
+margin-bottom: 32px;
+}
+}
+
+@media (min-width: 1280px) {
+.userCard{
+border-radius: 60px;
+max-width: 520px;
+height: 928px;
+}
+}

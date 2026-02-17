@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import MainLayout from '../components/MainLayout/MainLayout';
 import HomePage  from '../pages/HomePage/HomePage';
 import NewsPage from '../pages/NewsPage/NewsPage';
@@ -13,15 +13,25 @@ import PublicRoute from './PublicRoute';
 import ModalApproveAction from '../components/Modal/ModalApproveAction/ModalApproveAction.tsx';
 import ModalAttention from '../components/Modal/ModalAttention/ModalAttention';
 import ModalNotice from '../components/Modal/ModalNotice/ModalNotice';
+import ModalEditUser from '../components/Modal/ModalEditUser/ModalEditUser.tsx';
+import Page404 from '../pages/Page404/Page404';
+import type { NoticeDetails } from '../types/notices';
 
 const AppRoutes = () => {
   const location = useLocation();
   
   const state = location.state as {
     backgroundLocation?: Location;
+    item?: NoticeDetails;
   };
 
   const backgroundLocation = state?.backgroundLocation;
+
+  const navigate = useNavigate();
+
+const handleClose = () => {
+  navigate(-1);
+};
 
   return (
     <>
@@ -52,15 +62,16 @@ const AppRoutes = () => {
               <AddPetPage />
             </PrivateRoute>
           }/>
-        </Route> 
+         <Route path="*" element={<Page404 />} />
+         </Route>
       </Routes>
 
-      Модальні вікна
       {backgroundLocation && (
       <Routes>
-        <Route path="modal-approve" element={<ModalApproveAction />} />
-        <Route path="modal-attention" element={<ModalAttention />} />
-        <Route path="modal-notice" element={<ModalNotice />} />
+        <Route path="modal-approve" element={<ModalApproveAction onClose={handleClose} />} />
+        <Route path="modal-attention" element={<ModalAttention onClose={handleClose} />} />
+        <Route path="modal-notice" element={ state?.item ? (<ModalNotice onClose={handleClose} item={state.item}/> ) : null} />
+        <Route path="modal-edit" element={<ModalEditUser onClose={handleClose} />} />
         </Routes>
         )}
         </>

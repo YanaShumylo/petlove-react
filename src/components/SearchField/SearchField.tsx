@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDebouncedCallback } from 'use-debounce';
 import toast from "react-hot-toast";
 import css from "./SearchField.module.css";
 
@@ -15,6 +16,21 @@ export default function SearchField({
 }: SearchFieldProps) {
   const [keyword, setKeyword] = useState("");
 
+   const debouncedSubmit = useDebouncedCallback(
+    (value: string) => {
+      if (value.trim()) {
+        onSubmit(value.trim());
+      }
+    },
+    1000
+   );
+  
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setKeyword(value);
+    debouncedSubmit(value); 
+  };
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -40,7 +56,7 @@ export default function SearchField({
         <input
           type="text"
           value={keyword}
-          onChange={(e) => setKeyword(e.target.value)}
+          onChange={handleChange}
           placeholder={placeholder}
           autoComplete="off"
           className={css.input}

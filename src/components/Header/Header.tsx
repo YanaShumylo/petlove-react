@@ -3,7 +3,6 @@ import {  Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import Nav from '../Header/Nav/Nav';
 import AuthNav from '../Header/AuthNav/AuthNav';
-// import UserNav from '../Header/UserNav/UserNav';
 import css from './Header.module.css';
 import LogOutBtn from './LogOutBtn/LogOutBtn';
 
@@ -31,14 +30,11 @@ export default function Header() {
   }, []);
   
   const isHome = location.pathname === '/';
-  // const isAuthPage =
-  //   location.pathname === '/login' ||
-  //   location.pathname === '/register';
   
   const burgerColorClass = isHome ? css.burgerWhite : css.burgerBlack;
 
   return (
-    <header className={css.header}>
+    <header className={`${css.header} ${isHome ? css.homeHeader : ''}`}>
       <div className={css.container}>
         {/* логотип */}
         <Link to="/" className={css.logo}>
@@ -69,8 +65,12 @@ export default function Header() {
           </Link>
         )}
 
-         {/* на планшеті в хедері лише ім'я та аватарка */}
-        {isAuthenticated && isTablet && (
+         {/* на планшеті в хедері лише ім'я та аватарка лоагут або логін/регістрація */}
+        {isTablet && (
+  <div className={css.tabletHeader}>
+            {isAuthenticated ? (
+              <>
+             <LogOutBtn />
           <Link to="/profile" className={css.userInfo}>
             <img
               src={user?.avatar || '/default-avatar.png'}
@@ -78,9 +78,12 @@ export default function Header() {
               className={css.avatar}
             />
             <p className={css.name}>{user?.name}</p>
-          </Link>
-        )}
-
+          </Link>               
+              </> ) : (
+      <AuthNav />
+            )}     
+  </div>
+)}
         
         {/* {на  комп'ютері в хедері кнопка Логаут + аватарка + імя} */}
 {!isMobile && !isTablet && (

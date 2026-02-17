@@ -1,23 +1,26 @@
 .header {
-height: 40px;
+width: 100%;
+max-width: 375px;
+min-width: 320px;
+padding: 18px 20px 10px;
 position: absolute;
-left: 16px;  
-right: 0; 
-background: transparent;
 z-index: 10;
+background: transparent;
+align-items: center;
 }
 
 .container {
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 16px 16px;
-}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
+  }
 
 .logo {
 display: flex;
 align-items: center;
-margin-right: 105px;
 }
 
 .desktopNav {
@@ -32,7 +35,6 @@ display: none;
 width: 40px;
 height: 40px;
 border-radius: 100px;
-margin-right: 12px;
 }
 
 .burgerBtn {
@@ -40,8 +42,15 @@ background: transparent;
 padding: 0;
 display: flex;
 align-items: center;
-justify-content: center;  
+justify-content: center; 
+transition: transform 0.3s ease; 
 }
+
+.burgerBtn:hover,
+.burgerBtn:focus{
+transform: scale(1.4); 
+}
+
 
 .burgerWhite svg {
 fill: #fff;
@@ -60,9 +69,10 @@ right: 0;
 height: 100vh;        
 width: 218px;         
 background-color: #fff;
-padding: 0 20px;
+padding: 20px;
 display: flex;
 flex-direction: column;
+justify-content: space-between;
 z-index: 100;         
 overflow-y: auto;  
 }
@@ -71,7 +81,7 @@ overflow-y: auto;
 flex: 1;                 
 display: flex;
 flex-direction: column;
-justify-content: center; 
+justify-content: center;
 align-items: center;
 position: relative;       
 width: 100%;
@@ -93,34 +103,36 @@ display: flex;
 align-items: center;
 justify-content: center;
 z-index: 101;
+transition: transform 0.3s ease;
 }
 
-@media (min-width: 375px) {
-.container {
-max-width: 335px;
-padding: 16px 18px;
+.closeBtn:hover,
+.closeBtn:focus{
+transform: scale(1.4);
 }
+
+.mobileUser {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.tabletHeader,
+.desktopAuthNav,
+.desktopHeaderUser,
+.desktopNav {
+  display: none;
 }
 
 @media (min-width: 768px) {
 .header{
-max-width: 704px;
-padding-left: 32px;
-padding-right: 32px;
-}
-
-.container {
-max-width: 704px;
-padding: 32px 32px;
+max-width: 768px;  
+padding: 16px 32px;
 }
 
 .burgerMenu {
 width: 374px;
 padding: 32px;
-}
-
-.logo {
-margin-right: 190px;
 }
 
 .userInfo{
@@ -129,7 +141,6 @@ flex-direction: row;
 align-items: center;
 justify-content: center;
 gap: 8px;
-margin-right: 18px;
 }
 
 .name{
@@ -138,16 +149,44 @@ font-size: 20px;
 line-height: 1;
 letter-spacing: -0.03em;
 }
+
+.mobileUser {
+  display: none;
+}
+
+.tabletHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.desktopAuthNav,
+.desktopHeaderUser {
+  display: none;
+}
+
+.burgerBtn {
+  margin-left: 16px;
+}
 }
 
 @media (min-width: 1280px) {
 .header {
-max-width: 1216px;
+max-width: 1280px;  
+padding: 16px 64px;
 }
 
 .container {
-max-width: 1216px;
-}  
+  display: flex;
+  align-items: center;
+  padding-right: 64px;
+}
+
+ .mobileUser,
+.tabletHeader {
+  display: none;
+  }
 
 .burgerBtn,
 .burgerMenu{
@@ -155,27 +194,27 @@ display: none;
 }
 
 .logo{
-margin-right: 50px;
+margin-right: 40px;
 }
 
 .desktopAuthNav {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 16px;
+  margin-left: auto;
 }
 
 .desktopNav {
 display: flex;
 align-items: center;
 justify-content: center;
-/* gap: 110px; */
+flex: 1;
 }
 
 .desktopHeaderUser{
 display: flex;
-flex-direction: row;
 align-items: center;
-justify-content: center;
 gap: 8px;
+margin-left: auto;
 }
 }

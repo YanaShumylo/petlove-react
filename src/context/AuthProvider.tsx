@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { AuthContext } from './AuthContext';
 import { useCurrentUser, USER_QUERY_KEY } from '../hooks/useCurrentUser';
 import type { FullUser } from '../types/user';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { AuthResponse } from '../types/auth';
 import { authApi } from '../api/authApi';
 import {useQueryClient } from '@tanstack/react-query';
@@ -17,14 +17,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const queryClient = useQueryClient();
   const [userState, setUserState] = useState<FullUser | null>(null);
 
-  useCurrentUser({
-    onSuccess: (data) => {
-      setUserState(data ?? null);
-    },
-    onError: () => {
-      setUserState(null);
-    },
-  });
+  const { data } = useCurrentUser();
+
+useEffect(() => {
+  setUserState(data ?? null);
+}, [data]);
 
   function login(userData: AuthResponse, token: string) {
     localStorage.setItem('token', token);

@@ -93,8 +93,9 @@ gap: 10px;
 }
 
 .link {
-  border: 1px solid var(--color-border);
-  color: var(--color-black);
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
+  background-color: var(--color-accent);
   transition: all 0.3s ease;
 }
 

@@ -14,6 +14,7 @@ padding: 10px 20px 10px;
  .wrapper {
   position: relative;
   max-width: 335px;
+  width: 100%;
   height: 390px;
   padding-top: 118px; 
   padding-left: 20px;
@@ -57,6 +58,7 @@ padding: 16px 32px 10px;
   .wrapper {
   border-radius: 60px;
   max-width: 704px;
+  width: 100%;
   height: 496px;
   padding-top: 178px; 
   padding-left: 32px;
@@ -83,6 +85,7 @@ font-size: 80px;
   .image { 
   border-radius: 60px;
   max-width: 704px;
+  width: 100%;
   }
 }
 
@@ -91,8 +94,9 @@ font-size: 80px;
 max-width: 1280px;  
   }
 
-   .wrapper {
+  .wrapper {
   max-width: 1216px;
+  width: 100%;
   height: 384px;
   padding-top: 178px;
   padding-left: 64px;
@@ -120,7 +124,7 @@ line-height: 0.97;
   margin-left: 0;}
 
   .image { 
-  width: 100%;
   max-width: 1216px;
+  width: 100%;
   }
 }

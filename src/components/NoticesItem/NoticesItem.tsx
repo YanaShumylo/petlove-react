@@ -7,6 +7,7 @@ import { addFavorite, removeFavorite } from "../../api/noticesApi";
 import { useAuth } from "../../hooks/useAuth";
 import { useCurrentUser } from "../../hooks/useCurrentUser";
 import type { NoticeDetails } from "../../types/notices";
+import { getNoticesId } from "../../api/noticesApi";
 import toast from "react-hot-toast";
 import css from "./NoticesItem.module.css";
 
@@ -46,11 +47,15 @@ const favoriteMutation = useMutation({
     },
   });
 
-  const handleLearnMoreClick = () => {
+  const handleLearnMoreClick = async () => {
     if (!isAuthenticated) {
       setIsAttentionOpen(true);
       return;
     }
+
+     await getNoticesId(item._id); // якщо бек сам додає в viewed
+     queryClient.invalidateQueries({ queryKey: ["currentUser"] });
+
     setIsOpen(true);
   };
 
@@ -69,6 +74,7 @@ const favoriteMutation = useMutation({
     <>
       <li className={css.itemNotices}>
         <img className={css.image} src={item.imgURL} alt={item.title} />
+        <div className={css.sckroll}>
         <div className={css.wrapperTitlePopular}>
         <h3 className={css.title}>{item.title}</h3>
         <svg width="16" height="16">
@@ -99,11 +105,11 @@ const favoriteMutation = useMutation({
         <span className={css.label}>Category</span>
         <p className={css.value}>{item.category}</p>
         </div>
-        </div>
+        </div>   
 
-        <p className={css.comment}>{item.comment}</p>
+        <p className={css.comment}>{item.comment}</p>        
         <p className={css.price}>${item.price}</p>
-
+        </div>
         <div className={css.buttons}>
         <button className={ css.buttonLearnMore} type="button" onClick={handleLearnMoreClick}> Learn more
         </button>

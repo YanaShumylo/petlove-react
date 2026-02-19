@@ -179,9 +179,9 @@ export default function AddPetForm() {
               className={css.input}
               popperClassName={css.datePickerPopper}
               calendarClassName={css.datePickerCalendar}
-              />
+                    />
               )}
-              />
+                />                
               {errors.birthday && (
                 <p className={css.error}>{errors.birthday.message}</p>
               )}

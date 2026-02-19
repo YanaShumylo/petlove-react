@@ -3,7 +3,6 @@
   max-width: 335px;
   min-width: 320px;
   position: relative; 
-  /* padding: 20px; */
 }
 
 .inputWrapper {
@@ -27,6 +26,7 @@
   transition: border-color 0.3s ease;
 }
 
+.input:hover, 
 .input:focus {
   border-color: #f6b83d;
 }
@@ -36,11 +36,11 @@
   right: 40px; 
   background: transparent;
   border: none;
-  cursor: pointer;
-  padding: 0;
+   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;  
 }
 
 .searchButton {
@@ -48,15 +48,17 @@
   right: 10px; 
   background: transparent;
   border: none;
-  cursor: pointer;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;  
 }
 
 .clearButton:hover svg,
-.searchButton:hover svg {
+.searchButton:hover svg,
+.clearButton:focus svg,
+.searchButton:focus svg{
   fill: #f6b83d;
 }
 

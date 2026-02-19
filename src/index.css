@@ -2,7 +2,6 @@
   --font-family: "Manrope", sans-serif;
   color: #262626;
   background-color: #f9f9f9;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -28,7 +27,36 @@ body {
 
 p,
 h1, h2, h3, h4, h5, h6 {
-  margin: 0;
+margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-weight: 700;
+letter-spacing: -0.03em;
+}
+
+h2 {
+font-size: 28px;
+line-height: 1;
+}
+
+h3 {
+font-size: 16px;
+line-height: 1.25;
+}
+
+p {
+font-weight: 500;
+font-size: 14px;
+line-height: 1.29;
+letter-spacing: -0.02em;
+}
+
+span {
+font-weight: 500;
+font-size: 14px;
+line-height: 1.4;
+letter-spacing: -0.02em;
 }
 
 a {
@@ -38,15 +66,21 @@ a {
 }
 
 button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
+font-family: inherit;
+cursor: pointer;
+border: none;
+font-weight: 700;
+font-size: 14px;
+line-height: 1.29;
+letter-spacing: -0.03em;
 }
 
 img {
   display: block;
   max-width: 100%;
   height: auto;
+  object-fit: cover;
+
 }
 
 ol, ul {

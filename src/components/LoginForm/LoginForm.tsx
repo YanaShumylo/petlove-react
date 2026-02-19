@@ -158,7 +158,7 @@ export default function LoginForm() {
       </button>
       
         <p className={css.text}>
-          Don’t have an account?
+          Don't have an account?
           <Link to="/register" className={css.linkPage}> Register</Link>
       </p>
       

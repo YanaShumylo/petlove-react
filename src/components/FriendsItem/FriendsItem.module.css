@@ -7,10 +7,26 @@
   min-width: 320px;
   height: 184px;
   padding: 12px 12px 20px 12px;
-
   border-radius: 15px;
   background: #fff;
-  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.itemFriend:hover,
+.itemFriend:focus{
+transform: scale(1.03);
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.itemFriend::-webkit-scrollbar {
+  width: 6px;             
+}
+
+.itemFriend::-webkit-scrollbar-thumb {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
 }
 
 .textData {
@@ -18,10 +34,8 @@
   padding: 4px 8px;
   height: 32px;
   background: #fff4df;
-  font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  letter-spacing: -0.02em;
   color: #f6b83d;
   align-self: flex-end;
 }
@@ -35,7 +49,6 @@
 .wrapperInfoFriend img {
   width: 80px;
   height: 80px;
-  object-fit: contain;
 }
 
 .info {
@@ -45,30 +58,21 @@
 }
 
 .title{
-font-weight: 700;
-font-size: 16px;
-line-height: 1.25;
 letter-spacing: -0.04em;
 }
 
 .label{
-font-weight: 500;
-font-size: 14px;
 line-height: 1.29;
-letter-spacing: -0.02em;
 color: rgba(38, 38, 38, 0.5);
 }
 
 .value{
-font-weight: 500;
-font-size: 14px;
-line-height: 1.29;
-letter-spacing: -0.02em;
 color: #262626;
-transition: color 0.2s ease;
+transition: color 0.3s ease;
 }
 
-.value:hover  {
+.value:hover,
+.value:focus  {
   color:#f6b83d;
 }
 

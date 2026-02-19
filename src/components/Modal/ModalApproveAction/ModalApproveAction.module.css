@@ -31,16 +31,12 @@ gap: 10px;
 }
 
 .button{
-font-weight: 700;
-font-size: 14px;
-line-height: 1.29;
-letter-spacing: -0.03em;
 color: #262626;
 border-radius: 30px;
 min-width: 134px;
 padding: 12px 44px;
 background: rgba(38, 38, 38, 0.05);
-transition: all 0.2s ease;
+transition: all 0.3s ease;
 }
 
 .button:hover,

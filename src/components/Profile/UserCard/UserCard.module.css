@@ -21,7 +21,8 @@ margin-bottom: 32px;
 @media (min-width: 1280px) {
 .userCard{
 border-radius: 60px;
-max-width: 520px;
-height: 928px;
+height: 910px;
+width: 520px;
+flex-shrink: 0;
 }
 }

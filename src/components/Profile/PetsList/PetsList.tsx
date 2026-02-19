@@ -3,7 +3,7 @@ import PetsItem from '../PetsItem/PetsItem';
 import css from './PetsList.module.css';
 
 interface PetsListProps {
-  pets?: Pet[];
+  pets: Pet[];
 }
 
 export default function PetsList({ pets= [] }: PetsListProps) {
@@ -17,7 +17,7 @@ export default function PetsList({ pets= [] }: PetsListProps) {
   
     <ul className={css.petsList}>
       {pets.map(pet => (
-        <PetsItem pet={pet} />
+        <PetsItem key={pet._id} pet={pet} />
       ))}
     </ul>
   </>

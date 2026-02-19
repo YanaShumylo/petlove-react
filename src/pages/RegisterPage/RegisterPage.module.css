@@ -6,8 +6,7 @@ justify-content: center;
 width: 100%;       
 max-width: 375px;  
 min-width: 320px; 
-background: #f9f9f9;
-padding: 60px 20px 10px;
+padding: 80px 20px 10px;
 }
 
 .image {
@@ -15,7 +14,6 @@ width: 90%;
 max-width: 334px;   
 height: auto; 
 border-radius: 30px;
-object-fit: cover;
 margin-bottom: 10px;
 }
 

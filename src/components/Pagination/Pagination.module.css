@@ -14,14 +14,10 @@
   border-radius: 50px;
   border: 1px solid rgba(38, 38, 38, 0.15);
   background-color: #fff;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.29;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .page:hover, .arrow:hover {

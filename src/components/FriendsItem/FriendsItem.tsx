@@ -19,15 +19,15 @@ export default function FriendsItem({ item }: FriendsItemProps) {
                 <h3 className={css.title}>{item.title}</h3>
                         <a href={`mailto:${item.email}`}>
                             <span className={css.label}>Email: </span>
-                            <span className={css.value}>{item.email}</span>
+                            <p className={css.value}>{item.email}</p>
                         </a>
                         <a href={item.addressUrl} target="_blank" rel="noopener noreferrer">
                             <span className={css.label}>Address:</span>
-                            <span className={css.value}>{item.address}</span>
+                            <p className={css.value}>{item.address}</p>
                         </a>
                         <a href={`tel:${item.phone}`} >
                             <span className={css.label}>Phone:</span>
-                            <span className={css.value}>{item.phone}</span>
+                            <p className={css.value}>{item.phone}</p>
                         </a>  
                 </div>
                 </div>

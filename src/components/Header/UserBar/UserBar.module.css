@@ -1,0 +1,29 @@
+.link{
+transition: transform 0.3s ease;
+}
+
+.link:hover,
+.link:focus {
+transform: scale(1.4); 
+}  
+
+.image{
+border-radius: 50px;
+width: 40px;
+height: 40px;
+}
+
+@media (min-width: 768px) {
+.image{
+border-radius: 50px;
+width: 50px;
+height: 50px;
+}
+
+.name{
+font-weight: 700;
+font-size: 20px;
+line-height: 1;
+letter-spacing: -0.03em;
+}
+}

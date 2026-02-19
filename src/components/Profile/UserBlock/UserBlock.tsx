@@ -26,7 +26,7 @@ export default function UserBlock({ user }: UserBlockProps) {
       } 
 
       <div className={css.userInfo}>
-        <h4 className={css.title}>My information</h4>
+        <h3 className={css.title}>My information</h3>
         <ul className={css.userList}>
           <li className={css.userListItem}>{user.name}</li>
           <li className={css.userListItem}>{user.email}</li>

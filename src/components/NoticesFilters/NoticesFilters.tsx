@@ -52,7 +52,7 @@ export default function NoticesFilters({
               
         <div className={css.wrapperCategoriaBygender} >
           <div className={css.selectwrapper}>
-    <Select
+      <Select
       className={css.customSelect}
       classNamePrefix="react-select"
       options={categories.map((c) => ({ value: c, label: c }))}
@@ -172,7 +172,8 @@ export default function NoticesFilters({
         className={css.closeIcon}
         width={14}
         height={14}
-        onClick={(e) => {
+          onClick={(e) => {
+          e.preventDefault();
           e.stopPropagation();
           onChange({
             ...params,
@@ -205,7 +206,8 @@ export default function NoticesFilters({
         className={css.closeIcon}
         width={14}
         height={14}
-        onClick={(e) => {
+          onClick={(e) => {
+          e.preventDefault();
           e.stopPropagation();
           onChange({
             ...params,
@@ -238,7 +240,8 @@ export default function NoticesFilters({
         className={css.closeIcon}
         width={14}
         height={14}
-        onClick={(e) => {
+          onClick={(e) => {
+          e.preventDefault();
           e.stopPropagation();
           onChange({
             ...params,
@@ -271,7 +274,8 @@ export default function NoticesFilters({
         className={css.closeIcon}
         width={14}
         height={14}
-        onClick={(e) => {
+          onClick={(e) => {
+          e.preventDefault();
           e.stopPropagation();
           onChange({
             ...params,

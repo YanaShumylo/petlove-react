@@ -9,7 +9,6 @@
   min-width: 320px;
   background: #fff4df;
   padding: 30px;
-  box-sizing: border-box;
   margin-bottom: 40px;
 }
 
@@ -119,6 +118,12 @@
   color: #fff;
 }
 
+/* прибираємо веритикальну лінію */
+.customSelect :global(.react-select__indicator-separator),
+.asyncSelectContainer :global(.react-select__indicator-separator) {
+  display: none;
+}
+
 .divider {
   width: 100%;
   height: 1px;
@@ -158,9 +163,6 @@ padding: 12px;
 background: #fff;
 border: 1px solid #f6b83d;
 font-weight: 500;
-font-size: 14px;
-line-height: 1.29;
-letter-spacing: -0.03em;
 color: #262626;
 transition: all 0.3s ease;
 }

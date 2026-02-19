@@ -24,7 +24,7 @@ border: 1px solid rgba(38, 38, 38, 0.15);
 font-size: 14px;
 line-height: 1.29;
 letter-spacing: -0.03em;
-transition: border-color 0.2s ease;
+transition: border-color 0.3s ease;
 }
 
 .input:hover,
@@ -32,7 +32,6 @@ transition: border-color 0.2s ease;
 border-color: #f6b83d;
 outline: none;
 }
-
 
 .inputError {
 border-color: #e03131;
@@ -71,7 +70,7 @@ transform: translateY(-50%);
 cursor: pointer;
 stroke: #121417;
 fill: none;
-transition: stroke 0.2s ease;
+transition: stroke 0.3s ease;
 }
 
 .eyeIcon:hover,
@@ -92,18 +91,14 @@ height: 42px;
 border-radius: 30px;
 background-color: #f6b83d;
 color: #fff;
-font-weight: 700;
-font-size: 14px;
-line-height: 1.29;
-letter-spacing: -0.03em;
 text-transform: uppercase;
 border: none;
-cursor: pointer;
-transition: all 0.2s ease;
+transition: all 0.3s ease;
 margin-bottom: 12px;
 }
 
-.submitButton:hover:not(:disabled) {
+.submitButton:hover:not(:disabled),
+.submitButton:focus:not(:disabled) {
 background-color: #fff4df;
 color: #f6b83d;
 }
@@ -114,7 +109,6 @@ cursor: not-allowed;
 }
 
 .text{
-font-weight: 500;
 font-size: 12px;
 line-height: 1.17;
 letter-spacing: -0.03em;
@@ -131,7 +125,7 @@ transition: color 0.3s ease;
 
 .linkPage:hover,
 .linkPage:focus {
-color: #fff;
+color: rgba(38, 38, 38, 0.5);
 }
 
 @media (min-width: 768px) {

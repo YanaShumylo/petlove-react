@@ -93,7 +93,7 @@ const mutation = useMutation<
     <Modal onClose={onClose}>
 
       <div className={css.wrapperModal}>
-        <h3 className={css.title}>Edit information</h3>
+        <h4 className={css.title}>Edit information</h4>
 
      <div className={css.avatarWrapper}>
   {avatarValue ? (

@@ -95,7 +95,7 @@ export default function AddPetForm() {
           <label className={css.sexItem}>
             <input type="radio" value="female" {...register("sex")} />
             <span className={css.iconFemale}>
-              <svg width="20" height="20">
+              <svg width="40" height="40">
                 <use href="/svg-sprite.svg#icon-female" />
               </svg>
             </span>
@@ -104,7 +104,7 @@ export default function AddPetForm() {
           <label className={css.sexItem}>
             <input type="radio" value="male" {...register("sex")} />
             <span className={css.iconMale}>
-              <svg width="20" height="20">
+              <svg width="40" height="40">
                 <use href="/svg-sprite.svg#icon-male" />
               </svg>
             </span>
@@ -113,7 +113,7 @@ export default function AddPetForm() {
           <label className={css.sexItem}>
             <input type="radio" value="unknown" {...register("sex")} />
             <span className={css.iconUnknown}>
-              <svg width="20" height="20">
+              <svg width="40" height="40">
                 <use href="/svg-sprite.svg#icon-health" />
               </svg>
             </span>

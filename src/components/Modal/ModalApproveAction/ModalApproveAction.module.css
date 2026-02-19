@@ -5,7 +5,7 @@ border-radius: 30px;
 width: 100%;
 max-width: 335px;
 padding: 40px 28px;
-background: #fff;
+background: var(--color-bg-primary);
 align-items: center;
 justify-content: center;
 }
@@ -22,6 +22,7 @@ font-size: 20px;
 line-height: 1;
 letter-spacing: -0.03em;
 margin-bottom: 28px;
+color: var(--color-text-primary);
 }
 
 .buttons{
@@ -31,18 +32,18 @@ gap: 10px;
 }
 
 .button{
-color: #262626;
+color: var(--color-text-primary);
 border-radius: 30px;
 min-width: 134px;
 padding: 12px 44px;
-background: rgba(38, 38, 38, 0.05);
+background: var(--color-text-secondary);
 transition: all 0.3s ease;
 }
 
 .button:hover,
 .button:focus {
-color: #fff;
-background: #f6b83d;
+color: var(--color-white);
+background: var(--color-accent);
 }
 
 @media (min-width: 768px) {

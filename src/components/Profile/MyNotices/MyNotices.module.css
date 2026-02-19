@@ -9,21 +9,21 @@
   border-radius: 30px;
   width: 123px;
   height: 42px;
-  background: #fff;
+  background: var(--color-white);
   font-weight: 400;
-  color: #262626;
+  color: var(--color-text-primary);
   transition: all 0.3s ease;
 }
 
 .tabs button:hover,
 .tabs button:focus {
-  background: #fbe7c1;
+  background: var(--color-accent-hover);
   outline: none;
 }
 
 .tabs button.active {
-  background: #f6b83d;
-  color: #fff;
+  background:  var(--color-accent);
+  color: var(--color-white);
   margin-bottom: 20px;
 }
 
@@ -43,7 +43,7 @@ min-width: 320px;
 
 .textSpan{
 font-weight: 700;
-color: #f6b83d;
+color: var(--color-accent);
 }
 
 @media (min-width: 768px) {

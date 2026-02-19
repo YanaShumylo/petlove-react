@@ -3,13 +3,13 @@ border-radius: 30px;
 padding: 12px 28px;
 width: 114px;
 height: 42px;
-background: #fff4df;
+background:  var(--color-bg-secondary);
 text-transform: uppercase;
-color: #f6b83d;
+color: var(--color-accent);
 transition: all 0.3s ease;
 }
 
 .LogOutBtn:hover,
 .LogOutBtn:focus{
-background: #fbe7c1;
+background: var(--color-accent-hover);
 }

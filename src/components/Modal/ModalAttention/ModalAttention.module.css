@@ -5,7 +5,7 @@ border-radius: 30px;
 width: 100%;
 max-width: 335px;
 padding: 40px 20px;
-background: #fff;
+background: var(--color-bg-primary);
 align-items: center;
 justify-content: center;
 }
@@ -19,13 +19,14 @@ margin-bottom: 20px;
 .title{
 font-size: 20px;
 line-height: 1;
-color: #f6b83d;
+color: var(--color-accent);
 margin-bottom: 20px;
 }
 
 .text{
 text-align: center;
 margin-bottom: 24px;
+color: var(--color-text-primary);
 }
 
 .links{
@@ -42,19 +43,19 @@ border-radius: 30px;
 padding: 12px 24px;
 width: 129px;
 height: 42px;
-background: #fff4df;
+background: var(--color-bg-secondary);
 font-weight: 700;
 font-size: 14px;
 line-height: 1.29;
 letter-spacing: -0.03em;
-color: #f6b83d;
+color: var(--color-accent);
 transition: all 0.3s ease;
 }
 
 .link:hover,
 .link:focus {
-color: #fff;
-background: #f6b83d;
+color: var(--color-white);
+background: var(--color-accent);
 }
 
 @media (min-width: 768px) {

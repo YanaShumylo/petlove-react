@@ -59,7 +59,7 @@ export default function PetsItem({ pet }: PetsItemProps) {
  
       <button className={css.deleteBtn} onClick={handleDelete} disabled={isPending}
         >
-          <svg width="30" height="30">
+          <svg width="38" height="38">
         <use href="/svg-sprite.svg#icon-delete" />
       </svg>
       </button>

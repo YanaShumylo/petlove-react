@@ -3,17 +3,17 @@ border-radius: 30px;
 padding: 10px 16px;
 width: 103px;
 height: 38px;
-background: #f6b83d;
+background: var(--color-accent);
 font-weight: 500;
 font-size: 14px;
 line-height: 1.29;
 letter-spacing: -0.03em;
-color: #fff;
+color: var(--color-white);
 transition: all 0.3s ease;
 }
 
 .addPetBtn:hover,
 .addPetBtn:focus{
-background-color: #fbe7c1;
-color: #f6b83d;
+background-color: var(--color-accent-hover);
+color:  var(--color-accent);
 }

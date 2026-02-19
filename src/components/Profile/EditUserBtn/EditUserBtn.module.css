@@ -12,18 +12,17 @@ gap: 4px;
 border-radius: 30px;
 padding: 10px 14px;
 min-width: 80px;
-background: #f6b83d;
+background: var(--color-accent);
 font-weight: 500;
 letter-spacing: -0.02em;
-color: #fff;
+color: var(--color-white); 
 transition: all 0.3s ease; 
 }
 
 .editBtn:hover,
 .editBtn:focus {
-background-color: #f7ca5d;
+background-color:  var(--color-accent-hover);
 }
-
 
 .iconPen{
 cursor: pointer;

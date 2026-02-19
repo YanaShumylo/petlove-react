@@ -5,6 +5,7 @@ import Nav from '../Header/Nav/Nav';
 import AuthNav from '../Header/AuthNav/AuthNav';
 import css from './Header.module.css';
 import LogOutBtn from './LogOutBtn/LogOutBtn';
+import { useTheme } from "../../hooks/useTheme";
 
 export default function Header() {
   const { isAuthenticated, user } = useAuth();
@@ -33,9 +34,14 @@ export default function Header() {
   
   const burgerColorClass = isHome ? css.burgerWhite : css.burgerBlack;
 
+  const { toggleTheme, theme } = useTheme();
+
   return (
     <header className={`${css.header} ${isHome ? css.homeHeader : ''}`}>
       <div className={css.container}>
+        <button className={css.themaBtn} onClick={toggleTheme}>
+         {theme === "light" ? "dark" : "light"}
+        </button>
         {/* логотип */}
         <Link to="/" className={css.logo}>
           {isHome ? (

@@ -18,6 +18,10 @@ align-items: center;
   padding-right: 20px;
   }
 
+.themaBtn{
+border-radius: 15px;
+}
+
 .logo {
 display: flex;
 align-items: center;
@@ -53,13 +57,13 @@ transform: scale(1.4);
 
 
 .burgerWhite svg {
-fill: #fff;
-stroke: #fff;
+fill: var(--color-white);
+stroke: var(--color-white);
 }
 
 .burgerBlack svg {
-fill: #000;
-stroke: #000;
+fill: var(--color-black);
+stroke: var(--color-black);
 }
 
 .burgerMenu {
@@ -68,7 +72,7 @@ top: 0;
 right: 0;             
 height: 100vh;        
 width: 218px;         
-background-color: #fff;
+background-color: var(--color-white);
 padding: 20px;
 display: flex;
 flex-direction: column;
@@ -109,6 +113,7 @@ transition: transform 0.3s ease;
 .closeBtn:hover,
 .closeBtn:focus{
 transform: scale(1.4);
+background: transparent;
 }
 
 .mobileUser {

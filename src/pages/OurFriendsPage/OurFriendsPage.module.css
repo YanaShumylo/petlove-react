@@ -7,6 +7,8 @@
   max-width: 375px;
   min-width: 320px;
   padding: 114px 20px 10px;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }
 
 .titleOurFriendsPage{
@@ -14,6 +16,7 @@
   text-align: left;
   letter-spacing: -0.03em;
   margin-bottom: 40px; 
+  color: var(--color-text-primary);
 }
 
 @media (min-width: 768px) {

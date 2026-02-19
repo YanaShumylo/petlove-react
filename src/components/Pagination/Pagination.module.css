@@ -12,23 +12,22 @@
   width: 40px;
   height: 40px;
   border-radius: 50px;
-  border: 1px solid rgba(38, 38, 38, 0.15);
-  background-color: #fff;
-  display: flex;
+  border: 1px solid var(--color-border);
+  background-color:  var(--color-bg-primary);
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
 }
 
 .page:hover, .arrow:hover {
-  background-color: #fff4df;
-  color: #262626;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
 }
 
 .active {
-  background-color: #f6b83d;;
-  color: #fff;
-  border-color: #f6b83d;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border-color: var(--color-accent);
 }
 
 .arrow:disabled {

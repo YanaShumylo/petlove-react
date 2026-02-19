@@ -11,20 +11,20 @@
   height: 42px;
   width: 178px;
   border-radius: 30px;
-  background: #fff4df;
+  background:  var(--color-bg-secondary);
   font-weight: 700;
   font-size: 14px;
   line-height: 1.29;
   text-transform: uppercase;
   letter-spacing: -0.03em;
-  color: #f6b83d;
+  color: var(--color-accent);
   transition: all 0.3s ease;
 }
 
 .link:hover,
 .link:focus {
-  background-color: #f6b83d;
-  color: #fff;
+  background-color: var(--color-accent);
+  color: var(--color-white);
 }
 
 @media (min-width: 768px) {
@@ -47,15 +47,15 @@ line-height: 1.25;}
 
 @media (min-width: 1280px) {
 .link {
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  color: #fff;
-  background-color: #f6b83d;
+  border: 1px solid var(--color-border);
+  color: var(--color-white);
+  background-color: var(--color-accent);
   transition: all 0.3s ease;
 }
 
 .link:hover,
 .link:focus {
-  background-color:  #fff4df;
-  color: #f6b83d;
+  background-color:  var(--color-bg-secondary);
+  color: var(--color-accent);
 }
 }

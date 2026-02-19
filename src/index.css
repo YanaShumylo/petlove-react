@@ -1,23 +1,48 @@
 :root {
   --font-family: "Manrope", sans-serif;
-  color: #262626;
-  background-color: #f9f9f9;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --color-bg-primary: #ffffff;           
+  --color-bg-secondary: #fff4df;         
+  --color-accent: #f6b83d;               
+  --color-accent-hover: #fbe7c1;         
+  --color-text-primary: #262626;         
+  --color-text-secondary: rgba(38,38,38,0.5); 
+  --color-border: rgba(38,38,38,0.1);    
+  --color-error: #e03131;                
+  --color-success: #2f9e44;              
+  --color-white: #ffffff;
+  --color-shadow: rgba(0,0,0,0.12);
+  --color-span: rgba(255, 255, 255, 0.4);
+  --color-black: #000;
+}
+[data-theme="dark"] {
+  --color-bg-primary: #1e3a63;          
+  --color-bg-secondary: #9d85bd;        
+  --color-accent: #f6b83d;             
+  --color-accent-hover: #477ccc;         
+  --color-text-primary: hwb(209 81% 10%);         
+  --color-text-secondary: rgba(126, 157, 243, 0.6);
+  --color-border: rgba(126, 157, 243, 02);
+  --color-error: #ff6b6b;               
+  --color-success: #2f9e44;             
+  --color-shadow: rgba(0,0,0,0.5);
+  --color-black: #ebe6e6;
+  --color-span: rgba(126, 157, 243, 0.4);
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  box-sizing: inherit;
-}
+ }
 
 body {
   font-family: var(--font-family);
-  box-sizing: border-box;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   padding: 0;
   margin: 0;
   display: flex;
@@ -28,6 +53,7 @@ body {
 p,
 h1, h2, h3, h4, h5, h6 {
 margin: 0;
+color: var(--color-text-primary);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -57,6 +83,7 @@ font-weight: 500;
 font-size: 14px;
 line-height: 1.4;
 letter-spacing: -0.02em;
+color: var(--color-text-primary);
 }
 
 a {
@@ -73,6 +100,14 @@ font-weight: 700;
 font-size: 14px;
 line-height: 1.29;
 letter-spacing: -0.03em;
+color: var(--color-text-primary);
+background-color: var(--color-accent);
+}
+
+button:hover,
+button:focus {
+  background-color: var(--color-accent-hover);
+  color: var(--color-text-primary);
 }
 
 img {
@@ -87,4 +122,8 @@ ol, ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+body, button, p, span, h1, h2, h3, h4, h5, h6 {
+transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

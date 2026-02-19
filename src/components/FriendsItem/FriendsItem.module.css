@@ -8,7 +8,9 @@
   height: 184px;
   padding: 12px 12px 20px 12px;
   border-radius: 15px;
-  background: #fff;
+  background:  var(--color-bg-primary);
+  color: var(--color-text-primary);
+  border: 1px solid #f6b83d;
   overflow-y: auto;
   overflow-x: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -17,7 +19,7 @@
 .itemFriend:hover,
 .itemFriend:focus{
 transform: scale(1.03);
-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+box-shadow: 0 10px 30px var(--color-shadow);
 }
 
 .itemFriend::-webkit-scrollbar {
@@ -25,7 +27,7 @@ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .itemFriend::-webkit-scrollbar-thumb {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 30px var(--color-shadow);
   border-radius: 3px;
 }
 
@@ -33,10 +35,10 @@ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   border-radius: 30px;
   padding: 4px 8px;
   height: 32px;
-  background: #fff4df;
+  background: var(--color-bg-secondary);
   font-size: 12px;
   line-height: 1.33;
-  color: #f6b83d;
+  color: var(--color-accent);
   align-self: flex-end;
 }
 
@@ -63,17 +65,17 @@ letter-spacing: -0.04em;
 
 .label{
 line-height: 1.29;
-color: rgba(38, 38, 38, 0.5);
+color: var(--color-text-secondary);
 }
 
 .value{
-color: #262626;
+color: var(--color-text-primary);
 transition: color 0.3s ease;
 }
 
 .value:hover,
 .value:focus  {
-  color:#f6b83d;
+  color:var(--color-accent);
 }
 
 @media (min-width: 768px) {
@@ -84,7 +86,6 @@ transition: color 0.3s ease;
 
   .textData {
   height: 34px;
-  background: #fff4df;
   font-size: 14px;
   line-height: 1.29;
 }

@@ -26,6 +26,7 @@ margin-bottom: 28px;
 .uploadText{
 font-size: 12px;
 line-height: 1.33;
+ color: var(--color-text-secondary);
 }
 
 .userInfo{
@@ -34,6 +35,7 @@ width: 100%;
 
 .title{
 margin-bottom: 20px;
+color: var(--color-text-primary);
 }
 
 .userList {
@@ -49,7 +51,7 @@ margin-bottom: 20px;
 .userListItem {
   display: flex;
   align-items: center;
-  border: 1px solid #f6b83d;
+  border: 1px solid  var(--color-accent);
   border-radius: 30px;
   padding: 12px;
   max-width: 295px;
@@ -58,7 +60,8 @@ margin-bottom: 20px;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.03em;
-  background-color: #fff;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
 }
 
 @media (min-width: 768px) {

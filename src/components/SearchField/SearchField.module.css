@@ -21,14 +21,14 @@
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.03em;
-  color: #262626;
+  color:#262626; 
   outline: none;
   transition: border-color 0.3s ease;
 }
 
 .input:hover, 
 .input:focus {
-  border-color: #f6b83d;
+  border-color: var(--color-accent);
 }
 
 .clearButton {
@@ -59,6 +59,7 @@
 .searchButton:hover svg,
 .clearButton:focus svg,
 .searchButton:focus svg{
-  fill: #f6b83d;
+background: transparent;
+fill: var(--color-accent);
 }
 

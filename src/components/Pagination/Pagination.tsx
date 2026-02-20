@@ -19,7 +19,7 @@ const Pagination: React.FC<PaginationProps> = ({
     return Array.from({ length }, (_, i) => start + i);
   };
 
-  const getPaginationRange = () => {
+  const getPaginationRange = (): (number | string)[]  => {
     const totalPageNumbers = 1; 
 
     if (totalPages <= totalPageNumbers) {
@@ -27,13 +27,13 @@ const Pagination: React.FC<PaginationProps> = ({
     }
 
     let startPage = Math.max(currentPage - 1, 1);
-    let endPage = Math.min(startPage + 1, totalPages);
+    const endPage = Math.min(startPage + 1, totalPages);
 
     if (endPage - startPage < 2) {
       startPage = Math.max(endPage - 2, 1);
     }
 
-    const pages = range(startPage, endPage);
+   const pages: (number | string)[] = range(startPage, endPage);
 
     if (startPage > 1) {
       pages.unshift("...");

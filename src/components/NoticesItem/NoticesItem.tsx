@@ -132,7 +132,7 @@ const favoriteMutation = useMutation({
       </li>    
 
       {isOpen && (
-        <ModalNotice item={item as NoticeDetails}onClose={() => setIsOpen(false)}/>
+        <ModalNotice item={item as unknown as NoticeDetails}onClose={() => setIsOpen(false)}/>
       )}
 
       {isAttentionOpen && (<ModalAttention onClose={() => setIsAttentionOpen(false)}/>

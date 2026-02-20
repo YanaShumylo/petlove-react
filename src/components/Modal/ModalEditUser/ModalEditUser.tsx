@@ -1,5 +1,4 @@
-// import { useRef, useState } from 'react';
-import { useForm, type SubmitHandler } from 'react-hook-form';
+import { useForm} from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
@@ -17,11 +16,11 @@ interface ModalEditUserProps {
 interface ModalEditUserFormValues {
   name: string;
   email: string;
-  avatar?: string;
-  phone?: string;
+  avatar: string;
+  phone: string;
 }
 
-const schemaModalEditUser = Yup.object({
+const schemaModalEditUser: Yup.ObjectSchema<ModalEditUserFormValues> = Yup.object({
   name: Yup.string().required('Name is required'),
   email: Yup.string()
     .required('Email is required')
@@ -30,13 +29,13 @@ const schemaModalEditUser = Yup.object({
       'Invalid email'
     ),
   avatar: Yup.string()
-    .notRequired()
+    .required()
     .matches(
       /^$|^https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp)$/,
       'Invalid avatar URL'
     ),
   phone: Yup.string()
-    .notRequired()
+    .required()
     .matches(/^\+38\d{10}$/, 'Phone must be in format +380XXXXXXXXX'),
 });
 
@@ -51,13 +50,13 @@ export default function ModalEditUser({ onClose }: ModalEditUserProps) {
     formState: { errors },
   } = useForm<ModalEditUserFormValues>({
     resolver: yupResolver(schemaModalEditUser),
+    mode: 'onBlur',
     defaultValues: {
       name: currentUser?.name ?? '',
       email: currentUser?.email ?? '',
       avatar: currentUser?.avatar ?? '',
       phone: currentUser?.phone ?? '',
-    },
-    mode: 'onBlur',
+    },    
   });
 
   const avatarValue = watch('avatar') ?? '';
@@ -70,10 +69,9 @@ const mutation = useMutation<
   mutationFn: (data) => userApi.updateCurrent(data),
 
   onSuccess: (updatedUser) => {
-    queryClient.setQueryData(['currentUser'], updatedUser);
-
-    onClose();
+    queryClient.setQueryData(['currentUser'], updatedUser);  
     toast.success('Profile updated successfully');
+    onClose();
   },
 
   onError: (error) => {
@@ -81,10 +79,13 @@ const mutation = useMutation<
   },
 });
 
-  const onSubmit: SubmitHandler<ModalEditUserFormValues> = (data) => {
-  const filteredData: Partial<FullUser> = Object.fromEntries(
-    Object.entries(data).filter(([_, value]) => value !== '' && value !== undefined)
-  );
+  const onSubmit=  (data: ModalEditUserFormValues)  => {
+  const filteredData:  Partial<FullUser> = {};
+
+  if (data.name) filteredData.name = data.name;
+  if (data.email) filteredData.email = data.email;
+  if (data.avatar) filteredData.avatar = data.avatar;
+  if (data.phone) filteredData.phone = data.phone;
 
     mutation.mutate(filteredData);
   };

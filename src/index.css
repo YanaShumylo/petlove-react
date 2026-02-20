@@ -13,6 +13,8 @@
   --color-shadow: rgba(0,0,0,0.12);
   --color-span: rgba(255, 255, 255, 0.4);
   --color-black: #000;
+  --color-home: #f6b83d;
+  --color-border-home:#f6b83d;
 }
 [data-theme="dark"] {
   --color-bg-primary: #1e3a63;          
@@ -27,6 +29,8 @@
   --color-shadow: rgba(0,0,0,0.5);
   --color-black: #ebe6e6;
   --color-span: rgba(126, 157, 243, 0.4);
+  --color-home: #1e3a63;
+  --color-border-home:#ffffff;
 }
 
 *,

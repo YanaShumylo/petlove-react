@@ -60,7 +60,7 @@ color: var(--color-text-primary);
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.03em;
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-uscard);
   color: var(--color-text-primary);
 }
 
@@ -121,5 +121,6 @@ justify-content: flex-start;
 
 .userListItem{
 width: 100%;
+max-width: 100%;
 }
 }

@@ -6,7 +6,7 @@ border-radius: 30px;
 width: 100%;
 max-width: 335px;
 padding: 40px 28px;
-background: var(--color-bg-primary);
+background: var(--color-modal);
 align-items: center;
 justify-content: center;
 }

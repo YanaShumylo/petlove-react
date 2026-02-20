@@ -5,7 +5,7 @@ max-width: 335px;
 min-width: 320px; 
 border-radius: 30px;
 padding: 18px 20px;
-background: var(--color-bg-secondary);
+background: var(--color-modal);
 color: var(--color-text-primary);
 margin-bottom: 20px;
 }
@@ -22,7 +22,6 @@ margin-bottom: 32px;
 @media (min-width: 1280px) {
 .userCard{
 border-radius: 60px;
-height: 910px;
 width: 520px;
 flex-shrink: 0;
 }

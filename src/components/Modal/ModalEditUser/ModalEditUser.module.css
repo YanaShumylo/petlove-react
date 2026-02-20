@@ -6,7 +6,7 @@ border-radius: 30px;
 width: 100%;
 max-width: 335px;
 padding: 40px 20px;
-background: var(--color-bg-primary);
+background: var(--color-modal);
 }
 
 .title{
@@ -54,7 +54,7 @@ font-size: 14px;
 line-height: 1.29;
 letter-spacing: -0.03em;
 color: var(--color-text-primary);
-background: var(--color-bg-primary);
+background: var(--color-modal);
 transition: all 0.3s ease;
 }
 

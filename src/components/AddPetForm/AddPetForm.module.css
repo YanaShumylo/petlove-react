@@ -208,7 +208,7 @@
 }
 
 .btnBack {
-  background:  var(--color-bg-secondary);
+  background:  var(--color-bg-primary);
   color: var(--color-text-primary);
 }
 

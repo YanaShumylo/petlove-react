@@ -36,7 +36,7 @@ color: var(--color-text-primary);
 border-radius: 30px;
 min-width: 134px;
 padding: 12px 44px;
-background: var(--color-text-secondary);
+background: var(--color-bg-primary);
 transition: all 0.3s ease;
 }
 

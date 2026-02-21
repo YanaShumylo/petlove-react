@@ -24,7 +24,7 @@ width: 90%;
 max-width: 334px;  
 padding: 20px;
 border-radius: 30px; 
-background: var(--color-bg-secondary);
+background: var(--color-modal);
   color: var(--color-text-primary);
 }
 

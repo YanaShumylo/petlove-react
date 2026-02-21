@@ -21,7 +21,7 @@ height: 42px;
 padding: 12px 40px 12px 12px;
 border-radius: 30px;
 border: 1px solid var(--color-border);
-background-color: var(--color-bg-primary);
+background-color: var(--color-modal);
 color: var(--color-text-primary);
 font-size: 14px;
 line-height: 1.29;

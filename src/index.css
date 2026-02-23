@@ -17,6 +17,8 @@
   --color-border-home:#f6b83d;
   --color-uscard: #ffffff; 
   --color-modal: #ffffff;
+  --color-input: #262626;
+  --color-text-value: rgba(38,38,38,0.5); 
 }
 [data-theme="dark"] {
   --color-bg-primary: #1e3a63;          
@@ -36,6 +38,8 @@
   --color-uscard: #9d85bd; 
   --color-white: #ffffff;
   --color-modal: #1e3a63;
+  --color-input: #262626;
+  --color-text-value: rgba(38,38,38,0.5); 
 }
 
 *,

@@ -74,7 +74,6 @@ const favoriteMutation = useMutation({
     <>
       <li className={css.itemNotices}>
         <img className={css.image} src={item.imgURL} alt={item.title} />
-        <div className={css.sckroll}>
         <div className={css.wrapperTitlePopular}>
         <h3 className={css.title}>{item.title}</h3>
         <svg width="16" height="16">
@@ -109,7 +108,7 @@ const favoriteMutation = useMutation({
 
         <p className={css.comment}>{item.comment}</p>        
         <p className={css.price}>${item.price}</p>
-        </div>
+
         <div className={css.buttons}>
         <button className={ css.buttonLearnMore} type="button" onClick={handleLearnMoreClick}> Learn more
         </button>

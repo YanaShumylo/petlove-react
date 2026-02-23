@@ -21,7 +21,7 @@
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.03em;
-  color:#262626; 
+  color: var(--color-input); 
   outline: none;
   transition: border-color 0.3s ease;
 }

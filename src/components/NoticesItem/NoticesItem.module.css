@@ -6,7 +6,6 @@ width: 100%;
 max-width: 335px;
 min-width: 320px;
 height: 454px;
-position: relative; 
 padding: 32px; 
 border-radius: 16px;
 background: var(--color-modal);
@@ -20,21 +19,8 @@ transform: scale(1.03);
 box-shadow: 0 10px 20px var(--color-shadow);
 }
 
-.sckroll{
-overflow-y: auto;
-overflow-x: hidden;
-}
-
-.sckroll::-webkit-scrollbar {
-  width: 3px;             
-}
-
-.sckroll::-webkit-scrollbar-thumb {
-  background-color: 0 10px 20px var(--color-shadow); 
-  border-radius: 3px;
-}
-
 .image{
+display: block;
 border-radius: 16px;
 width: 100%;
 height: 178px;
@@ -52,6 +38,10 @@ margin-bottom: 8px;
 .title{
 text-align: center;
 color: var(--color-text-primary);
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+overflow: hidden;
 }
 
 .wrapperInfo{
@@ -70,17 +60,29 @@ gap: 2px;
 .label{
 font-size: 10px;
 color: var(--color-text-secondary);
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+overflow: hidden;
 }
 
 .value{
 font-size: 12px;
 line-height: 1.17;
 color: var(--color-text-primary);
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+overflow: hidden;
 }
 
 .comment{
 margin-bottom: 16px;
 color: var(--color-text-primary);
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+overflow: hidden;
 }
 
 .price{

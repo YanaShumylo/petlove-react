@@ -1,73 +1,53 @@
-# React + TypeScript + Vite
+# 🐾 PetLove
+A web app for browsing pet notices, managing favorites, and adding pets to your profile.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## ⚡ Features
+- Browse pet notices with filters by category, type, gender, location, popularity, and price.
+- Search by keyword.
+- Add/remove notices to/from favorites (authorized users).
+- Server-side pagination.
+- Registration & login with protected routes.
+- Manage user profile and pets.
+- Upload pet photos via Cloudinary.
+- Toast notifications for success/errors.
 
-Currently, two official plugins are available:
+## 📂 Project Structure
+- **Pages:** Home, News, Notices, Our Friends, Registration, Login, Profile, Add Pet  
+- **Components:** Header, Nav/AuthNav/UserNav, UserBar, Loader, SearchField, Pagination, PetBlock, AddPetForm, UserCard, PetsList, MyNotices  
+- **Modals:** ModalNotice, ModalAttention, ModalEditUser, ModalApproveAction  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## 🛠 Tech Stack
+**Frontend:** React, TypeScript, CSS Modules  
+**State & Data:** React Query, React Hook Form, Yup  
+**Other:** React Router, react-hot-toast, react-select, Cloudinary, modern-normalize
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
 
-## Expanding the ESLint configuration
+## 🚀 Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Clone the repository:
+```bash
+git clone <SSH code>
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. Go to the project folder:
+cd petlove/
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+3. Install dependencies:
+npm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4. Run the local server:
+npm run dev
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+🔑 Environment Variables
+To run this project, you will need to add the following environment variables to your .env file
+VITE_API_BASE_URL=URL
+VITE_CLOUDINARY_CLOUD_NAME=CLOUD_NAME
+VITE_CLOUDINARY_UPLOAD_PRESET=UPLOAD_PRESET
+VITE_CLOUDINARY_API_KEY=YOUR_API_KEY_HERE
+VITE_CLOUDINARY_SECRET=YOUR_API_SECRET_HERE
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+📄 Technical Specificatio 
+https://petlove.b.goit.study/api-docs/ 
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🎨 Design
+[Figma Prototype](https://www.figma.com/file/puMNfZVg4YI8UZoJ1QiLLi/Petl%F0%9F%92%9Bve?type=design&node-id=55838-750&mode=design&t=Xg1IwIcKebTl5xGs-0)

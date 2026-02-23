@@ -13,11 +13,12 @@ import Select from "react-select";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Controller } from "react-hook-form";
+import { useState, useEffect } from "react";
+import { uploadAvatarToCloudinary } from "../../utils/cloudinary";
 
 export interface AddPetFormValues {
   name: string;
   title: string;
-  imgURL: string;
   species: string;
   birthday: string;
   sex: string;
@@ -26,12 +27,6 @@ export interface AddPetFormValues {
 const schemaAddPetForm = Yup.object({
   title: Yup.string().required("Title is required"),
   name: Yup.string().required("Name is required"),
-  imgURL: Yup.string()
-    .required("Image URL is required")
-    .matches(
-      /^https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp)$/,
-      "Invalid image URL format"
-    ),
   species: Yup.string().required("Species is required"),
   birthday: Yup.string()
     .required("Birthday is required")
@@ -42,7 +37,6 @@ const schemaAddPetForm = Yup.object({
 const defaultValues: AddPetFormValues = {
   name: "",
   title: "",
-  imgURL: "",
   species: "",
   birthday: "",
   sex: "",
@@ -51,21 +45,29 @@ const defaultValues: AddPetFormValues = {
 export default function AddPetForm() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [preview, setPreview] = useState<string | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
+  
+   useEffect(() => {
+    return () => {
+      if (preview?.startsWith("blob:")) {
+        URL.revokeObjectURL(preview);
+      }
+    };
+  }, [preview]);
 
   const {
     register,
     handleSubmit,
     setValue,
     control,
-    watch,
     formState: { errors },
   } = useForm<AddPetFormValues>({
     resolver: yupResolver(schemaAddPetForm),
     defaultValues,
     mode: "onBlur",
   });
-
-  const avatarValue = watch("imgURL");
 
   const mutation = useMutation<FullUser, Error, Pet>({
     mutationFn: addPet,
@@ -78,8 +80,38 @@ export default function AddPetForm() {
     },
   });
 
-  const onSubmit = (data: AddPetFormValues) => {
-    mutation.mutate(data as Pet);
+   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (preview?.startsWith("blob:")) {
+      URL.revokeObjectURL(preview);
+    }
+
+    const objectUrl = URL.createObjectURL(file);
+    setSelectedFile(file);
+    setPreview(objectUrl);
+  };
+
+  const onSubmit = async (data: AddPetFormValues) => {
+  try {
+      if (!selectedFile) {
+        toast.error("Please upload a photo");
+        return;
+      }
+
+      setIsUploading(true);
+      const imageUrl = await uploadAvatarToCloudinary(selectedFile);
+      setIsUploading(false);
+
+      mutation.mutate({
+        ...data,
+        imgURL: imageUrl,
+      } as Pet);
+    } catch {
+      setIsUploading(false);
+      toast.error("Image upload failed");
+    }
   };
 
   return (
@@ -123,8 +155,8 @@ export default function AddPetForm() {
 
 
         <div className={css.avatarWrapper}>
-          {avatarValue ? (
-            <img src={avatarValue} alt="Pet avatar" className={css.avatar} />
+          {preview ? (
+            <img src={preview} alt="Pet avatar" className={css.avatar} />
           ) : (
             <div className={css.avatarPlaceholder}>
               <svg width="50" height="50">
@@ -135,15 +167,17 @@ export default function AddPetForm() {
 
           <div className={css.wrapperInfo}>
             <div className={css.inputWrapper}>
-              <input
-                className={css.input}
-                placeholder="Image URL"
-                {...register("imgURL")}
-              />
-              {errors.imgURL && (
-                <p className={css.error}>{errors.imgURL.message}</p>
-              )}
-            </div>
+          <div className={css.fileUploadWrapper}>
+            <input type="text" readOnly value={selectedFile?.name || ''} placeholder="Enter URL" className={css.input}/>
+    
+            <label className={css.uploadButton}>
+            <input type="file" accept="image/*" onChange={handleFileChange} className={css.hiddenFileInput}/> Upload photo
+              <svg width="16" height="16">
+              <use href="/svg-sprite.svg#icon-cloud" />
+              </svg>
+            </label>
+          </div>
+          </div>        
 
             <div className={css.inputWrapper}>
               <input
@@ -179,9 +213,12 @@ export default function AddPetForm() {
               className={css.input}
               popperClassName={css.datePickerPopper}
               calendarClassName={css.datePickerCalendar}
-                    />
-              )}
-                />                
+                    />                    
+                  )}                  
+                />    
+                 <svg width="20" height="20" className={css.calendarIcon}>
+                <use href="/svg-sprite.svg#icon-calendar" />
+              </svg>
               {errors.birthday && (
                 <p className={css.error}>{errors.birthday.message}</p>
               )}
@@ -219,9 +256,9 @@ export default function AddPetForm() {
           <button
             type="submit"
             className={css.btnSubmit}
-            disabled={mutation.isPending}
+            disabled={mutation.isPending  || isUploading}
           >
-            Submit
+            {isUploading ? "Uploading..." : "Submit"}
           </button>
         </div>
       </form>

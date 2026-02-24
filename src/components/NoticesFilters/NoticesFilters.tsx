@@ -286,12 +286,11 @@ export default function NoticesFilters({
         <use href="/svg-sprite.svg#icon-cross-small" />
       </svg>
     )}
-  </label>
-</div>
-
+      </label>
       <button className={css.btnReset} type="button" onClick={handleReset}>
         Reset
-      </button>
+      </button>    
+</div>
     </section>
   );
 }
